@@ -1,0 +1,28 @@
+    <aside class="sidebar" style="z-index: 50;">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+                <h2>EduManage</h2>
+                <span>ADMINISTRAÇÃO ESCOLAR</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li class="<%= locals.activeMenu === 'dashboard' ? 'active' : '' %>" onclick="window.location.href='/'" style="cursor: pointer;"><i class="fas fa-th-large"></i> Dashboard</li>
+                <li class="<%= locals.activeMenu === 'alunos' ? 'active' : '' %>" onclick="window.location.href='/alunos'" style="cursor: pointer;"><i class="fas fa-user-graduate"></i> Alunos</li>
+                <li class="<%= locals.activeMenu === 'notas' ? 'active' : '' %>" onclick="window.location.href='/notas'" style="cursor: pointer;"><i class="fas fa-star"></i> Notas</li>
+                <li class="<%= locals.activeMenu === 'professores' ? 'active' : '' %>" onclick="window.location.href='/professores'" style="cursor: pointer;"><i class="fas fa-chalkboard-teacher"></i> Professores</li>
+                <li class="<%= locals.activeMenu === 'turmas' ? 'active' : '' %>" onclick="window.location.href='/turmas'" style="cursor: pointer;"><i class="fas fa-users"></i> Turmas</li>
+                <li class="<%= locals.activeMenu === 'relatorios' ? 'active' : '' %>" onclick="window.location.href='/relatorios'" style="cursor: pointer;"><i class="fas fa-chart-line"></i> Relatórios</li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-new" onclick="window.location.href='/alunos/novo'"><i class="fas fa-plus"></i> Novo Cadastro</button>
+            <ul>
+                <li><i class="fas fa-cog"></i> Configurações</li>
+                <li><i class="fas fa-sign-out-alt"></i> Sair</li>
+            </ul>
+        </div>
+    </aside>

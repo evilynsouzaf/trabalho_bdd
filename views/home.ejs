@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduManage - Dashboard Administrativo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <%- include('partials/sidebar_css') %>
+</head>
+<body>
+
+    <%- include('partials/sidebar') %>
+
+    <main class="main-content">
+        
+        <header class="top-header">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Pesquisar no portal...">
+            </div>
+            <div class="user-info">
+                <span>Portal Administrativo</span>
+                <i class="far fa-bell"></i>
+                <i class="far fa-question-circle"></i>
+                <div class="profile">
+                    <div class="profile-text">
+                        <strong>Admin User</strong>
+                        <small>SUPER ADMINISTRADOR</small>
+                    </div>
+                    <div class="avatar"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-section">
+            <div class="welcome-text">
+                <h1>Bem-vindo, Administrador</h1>
+                <p>Aqui está um resumo do status institucional para hoje. Você tem <span class="highlight">12 novos registros</span> pendentes de revisão.</p>
+                <div class="actions">
+                    <button class="btn-primary">Gerar Relatório Diário</button>
+                    <button class="btn-secondary">Ver Log de Atividades</button>
+                </div>
+            </div>
+            <div class="welcome-chart-placeholder">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+        </section>
+
+        <section class="metrics-grid">
+            <div class="card metric">
+                <div class="metric-header">
+                    <i class="fas fa-user-graduate"></i>
+                    <span class="badge positive">+4% est.</span>
+                </div>
+                <small>TOTAL DE ALUNOS</small>
+                <h3>1,284</h3>
+                <div class="metric-footer">Ativos: 1,240 <i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="card metric">
+                <div class="metric-header">
+                    <i class="fas fa-user-tie"></i>
+                    <span class="badge neutral">Estável</span>
+                </div>
+                <small>CORPO DOCENTE</small>
+                <h3>86</h3>
+                <div class="metric-footer">Em aula: 42 <i class="fas fa-arrow-right"></i></div>
+            </div>
+            <div class="card metric">
+                <div class="metric-header">
+                    <i class="fas fa-users"></i>
+                    <span class="badge warning">Lotação Alta</span>
+                </div>
+                <small>TURMAS ATIVAS</small>
+                <h3>48</h3>
+                <div class="metric-footer">Período: Integral <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </section>
+
+        <div class="bottom-grid">
+            <section class="card table-container">
+                <div class="card-header">
+                    <h3>Matrículas Recentes</h3>
+                    <a href="#">Ver todos</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ALUNO</th>
+                            <th>TURMA</th>
+                            <th>DATA</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mariana Almeida</strong></td>
+                            <td>3º Ano A - Médio</td>
+                            <td>12 Mai, 2024</td>
+                            <td><span class="status approved">APROVADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ricardo Costa</strong></td>
+                            <td>9º Ano B - Fund.</td>
+                            <td>11 Mai, 2024</td>
+                            <td><span class="status pending">PENDENTE</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Julia Santos</strong></td>
+                            <td>1º Ano C - Médio</td>
+                            <td>10 Mai, 2024</td>
+                            <td><span class="status approved">APROVADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bruno Torres</strong></td>
+                            <td>2º Ano A - Médio</td>
+                            <td>08 Mai, 2024</td>
+                            <td><span class="status cancelled">CANCELADO</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <aside class="widgets">
+                <div class="card events">
+                    <h3>Próximos Eventos</h3>
+                    <div class="event-item">
+                        <div class="date-box"><span>MAI</span><strong>15</strong></div>
+                        <div class="event-info"><strong>Reunião Pedagógica</strong><small>14:00 - Auditório Principal</small></div>
+                    </div>
+                    <div class="event-item">
+                        <div class="date-box"><span>MAI</span><strong>20</strong></div>
+                        <div class="event-info"><strong>Conselho de Classe</strong><small>08:30 - Sala 402</small></div>
+                    </div>
+                    <button class="btn-outline">Ver Calendário Completo</button>
+                </div>
+
+                <div class="card server-status">
+                    <h3>Status do Servidor</h3>
+                    <p><i class="fas fa-circle"></i> Sistemas Operacionais</p>
+                    <small>Backup automático realizado hoje às 04:00 AM.</small>
+                    <div class="storage-info">
+                        <span>ARMAZENAMENTO: 92% LIVRE</span>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+</body>
+</html>

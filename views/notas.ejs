@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f3f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ced4da;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #adb5bd;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#212425",
+                        "inverse-surface": "#293138",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#dbe4ed",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-tertiary-fixed": "#191c1d",
+                        "surface-container-low": "#ecf5fe",
+                        "on-background": "#141d23",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#00210c",
+                        "on-primary-fixed-variant": "#2c4771",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#adc7f8",
+                        "surface-bright": "#f6faff",
+                        "surface-container-highest": "#dbe4ed",
+                        "inverse-primary": "#adc7f8",
+                        "on-primary-fixed": "#001b3d",
+                        "surface": "#f6faff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#00234b",
+                        "background": "#f6faff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d2dbe4",
+                        "inverse-on-surface": "#e9f2fb",
+                        "on-primary-container": "#718bb9",
+                        "surface-tint": "#455f8a",
+                        "on-secondary-container": "#00743a",
+                        "surface-container-high": "#e0e9f2",
+                        "tertiary": "#0c0e0f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#e6eff8",
+                        "outline-variant": "#c4c6d0",
+                        "on-tertiary-container": "#898b8c",
+                        "primary": "#000e24",
+                        "secondary-container": "#6bfe9c",
+                        "on-surface": "#141d23",
+                        "on-surface-variant": "#43474e",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "secondary": "#006d37",
+                        "on-secondary-fixed-variant": "#005228",
+                        "secondary-fixed-dim": "#4ae183",
+                        "outline": "#74777f",
+                        "secondary-fixed": "#6bfe9c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sidebar_width": "260px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "header_height": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "label-bold": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <%- include('partials/sidebar_css') %>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- SideNavBar -->
+<%- include('partials/sidebar') %>
+<!-- TopNavBar -->
+<header class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
+<div class="flex items-center gap-md">
+<h2 class="font-title-sm text-title-sm text-primary">Portal Administrativo</h2>
+<div class="relative ml-xl">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input class="pl-[44px] pr-md py-xs bg-surface-container-low border-none rounded-full w-[320px] text-body-md focus:ring-1 focus:ring-primary" placeholder="Buscar aluno ou turma..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer active:opacity-80" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-md border-l border-outline-variant pl-lg">
+<div class="text-right">
+<p class="font-label-bold text-primary">Administrador</p>
+<p class="text-label-sm text-on-surface-variant">Secretaria Acadêmica</p>
+</div>
+<img alt="Foto do Administrador" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a middle-aged male school administrator with a warm smile, wearing a charcoal grey suit and a white shirt. The background is a brightly lit, clean office environment with soft focus, maintaining a corporate and authoritative yet accessible aesthetic. The lighting is soft and even, highlighting the professional nature of the school management system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClf5m0Lq6xzz62WJ2xPFdS-FdVDAU4ZuIkZcDwv_Nk-YxfhskZjJTYGJumANr6zH1_b3Na71RyZs4eDhj79lrk7i7J8I08UkH0tqi-tY4zWO_QdFy4_cUngkpXPu_harZdbnC78tMeDj6TzUEDYx2qEUxUI4vXroqnB5D63TKmBjyRMf1E4SKGjFPFpXDTg-Q1wmd0WAZIqFOHyyB4nT3IBDNsq1XmytJsOwcQR60FkKIsyUcq_-Nu_tF7slkatDNESFdlJiYEFv0"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-header_height pl-sidebar_width min-h-screen">
+<div class="p-lg">
+<!-- Breadcrumbs & Header -->
+<div class="mb-lg">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm mb-xs">
+<span>EduManage</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span>Gestão Acadêmica</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Lançamento de Notas</span>
+</div>
+<h3 class="font-display-lg text-display-lg text-primary">Lançamento de Notas</h3>
+</div>
+<!-- Dashboard Layout (Bento Grid Style) -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Filters Section -->
+<section class="col-span-12 bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex flex-wrap items-end gap-lg">
+<div class="flex-1 min-w-[240px]">
+<label class="block font-label-bold text-on-surface-variant mb-xs">Selecione a Turma</label>
+<div class="relative">
+<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
+<option>3º Ano A - Ensino Médio (Matutino)</option>
+<option>3º Ano B - Ensino Médio (Vespertino)</option>
+<option>2º Ano A - Ensino Médio (Matutino)</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex-1 min-w-[240px]">
+<label class="block font-label-bold text-on-surface-variant mb-xs">Selecione a Disciplina</label>
+<div class="relative">
+<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
+<option>Matemática Aplicada</option>
+<option>Física Quântica</option>
+<option>Língua Portuguesa</option>
+<option>História Geral</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex-1 min-w-[240px]">
+<label class="block font-label-bold text-on-surface-variant mb-xs">Período Letivo</label>
+<div class="relative">
+<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
+<option>1º Bimestre</option>
+<option>2º Bimestre</option>
+<option>3º Bimestre</option>
+<option>4º Bimestre</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-xl h-[40px] rounded font-label-bold flex items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                            Filtrar
+                        </button>
+</div>
+</section>
+<!-- Data Table Section (Main Grid) -->
+<section class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="bg-surface-container px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-title-sm text-primary">Lista de Alunos</h4>
+<span class="text-label-sm text-on-surface-variant">32 alunos encontrados</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-[#F1F3F5] sticky top-0">
+<tr>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant">MATRÍCULA</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant">NOME DO ALUNO</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant text-center">N1</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant text-center">N2</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant text-center">N3</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant text-center">MÉDIA</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer bg-blue-50/50">
+<td class="px-lg py-md font-label-bold text-primary">2024001</td>
+<td class="px-lg py-md text-on-surface">Ana Beatriz Silva</td>
+<td class="px-lg py-md text-center text-on-surface-variant">8.5</td>
+<td class="px-lg py-md text-center text-on-surface-variant">9.0</td>
+<td class="px-lg py-md text-center text-on-surface-variant">--</td>
+<td class="px-lg py-md text-center font-bold text-primary">8.8</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded-full bg-blue-100 text-primary text-[11px] font-bold uppercase tracking-wider">Pendente</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-lg py-md font-label-bold text-primary">2024042</td>
+<td class="px-lg py-md text-on-surface">Carlos Eduardo Pereira</td>
+<td class="px-lg py-md text-center text-on-surface-variant">7.0</td>
+<td class="px-lg py-md text-center text-on-surface-variant">6.5</td>
+<td class="px-lg py-md text-center text-on-surface-variant">7.5</td>
+<td class="px-lg py-md text-center font-bold text-primary">7.0</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded-full bg-green-100 text-secondary text-[11px] font-bold uppercase tracking-wider">Aprovado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-lg py-md font-label-bold text-primary">2024015</td>
+<td class="px-lg py-md text-on-surface">Daniela Souza Oliveira</td>
+<td class="px-lg py-md text-center text-on-surface-variant">4.5</td>
+<td class="px-lg py-md text-center text-on-surface-variant">5.0</td>
+<td class="px-lg py-md text-center text-on-surface-variant">3.0</td>
+<td class="px-lg py-md text-center font-bold text-error">4.2</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded-full bg-red-100 text-error text-[11px] font-bold uppercase tracking-wider">Reprovado</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-lg py-md font-label-bold text-primary">2024089</td>
+<td class="px-lg py-md text-on-surface">Gabriel Henrique Lima</td>
+<td class="px-lg py-md text-center text-on-surface-variant">10.0</td>
+<td class="px-lg py-md text-center text-on-surface-variant">9.5</td>
+<td class="px-lg py-md text-center text-on-surface-variant">--</td>
+<td class="px-lg py-md text-center font-bold text-primary">9.8</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded-full bg-blue-100 text-primary text-[11px] font-bold uppercase tracking-wider">Pendente</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-lg py-md font-label-bold text-primary">2024102</td>
+<td class="px-lg py-md text-on-surface">Isabela Martins</td>
+<td class="px-lg py-md text-center text-on-surface-variant">8.0</td>
+<td class="px-lg py-md text-center text-on-surface-variant">7.5</td>
+<td class="px-lg py-md text-center text-on-surface-variant">8.0</td>
+<td class="px-lg py-md text-center font-bold text-primary">7.8</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs rounded-full bg-green-100 text-secondary text-[11px] font-bold uppercase tracking-wider">Aprovado</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<p class="text-label-sm text-on-surface-variant">Exibindo 1-10 de 32 alunos</p>
+<div class="flex gap-xs">
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center text-label-bold">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white text-label-bold">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white text-label-bold">3</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</section>
+<!-- Input Form Section (Side Panel) -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<section class="bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-md mb-lg">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[28px]" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h4 class="font-title-sm text-primary">Lançamento</h4>
+<p class="text-label-sm text-on-surface-variant">Ana Beatriz Silva (2024001)</p>
+</div>
+</div>
+<form class="space-y-lg">
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-xs">Nota 1 (N1)</label>
+<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" step="0.1" type="number" value="8.5"/>
+</div>
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-xs">Nota 2 (N2)</label>
+<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" step="0.1" type="number" value="9.0"/>
+</div>
+<div>
+<label class="block font-label-bold text-on-surface-variant mb-xs">Nota 3 (N3)</label>
+<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md border-primary-container ring-1 ring-primary-container" placeholder="Insira a nota..." step="0.1" type="number"/>
+</div>
+<div class="pt-md bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
+<div class="flex justify-between items-center mb-xs">
+<span class="text-label-sm text-on-surface-variant">Média Parcial:</span>
+<span class="font-headline-md text-primary">8.8</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 88%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-sm pt-md">
+<button class="bg-secondary text-on-secondary w-full py-md rounded-lg font-label-bold flex items-center justify-center gap-sm shadow-lg shadow-secondary/10 hover:brightness-110 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                                    Salvar Notas
+                                </button>
+<button class="border border-outline text-on-surface-variant w-full py-md rounded-lg font-label-bold hover:bg-surface-container-low transition-colors" type="button">
+                                    Limpar Campos
+                                </button>
+</div>
+</form>
+</section>
+<!-- Info Alert -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant flex gap-md">
+<span class="material-symbols-outlined text-primary-container" data-icon="info">info</span>
+<div>
+<p class="font-label-bold text-primary">Importante</p>
+<p class="text-body-sm text-on-surface-variant mt-xs">As notas lançadas serão enviadas automaticamente para o portal do aluno após a confirmação do coordenador.</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per relevance check, but keeping structure for shell consistency if needed) -->
+<!-- FAB is suppressed here because the primary action is embedded in the main dashboard/form flow -->
+</body></html>

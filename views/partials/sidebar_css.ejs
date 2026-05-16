@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Sidebar Styles imported from home.html */
+        :root {
+            --sidebar-blue: #0b1421;
+            --accent-green: #00a859;
+            --text-white: #ffffff;
+        }
+        .sidebar { width: 260px; background-color: var(--sidebar-blue); color: var(--text-white); padding: 25px; display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; box-sizing: border-box; z-index: 50; }
+        .sidebar .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+        .sidebar .logo i { font-size: 28px; color: #90cdf4; }
+        .sidebar .logo h2 { font-size: 18px; letter-spacing: 1px; margin: 0; font-family: 'Segoe UI', sans-serif;}
+        .sidebar .logo span { font-size: 10px; opacity: 0.6; }
+        .sidebar .menu ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar .menu li { padding: 12px 15px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; opacity: 0.7; transition: 0.3s; font-size: 14px; display: block; }
+        .sidebar .menu li:hover, .sidebar .menu li.active { background-color: rgba(255,255,255,0.1); opacity: 1; }
+        .sidebar .menu li i { margin-right: 12px; width: 20px; text-align: center; }
+        .sidebar .sidebar-footer { margin-top: auto; }
+        .sidebar .btn-new { width: 100%; background-color: var(--accent-green); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; margin-bottom: 20px; cursor: pointer; }
+        .sidebar .sidebar-footer ul { list-style: none; font-size: 13px; opacity: 0.7; padding: 0; }
+        .sidebar .sidebar-footer li { margin-bottom: 10px; cursor: pointer; }
+    </style>
