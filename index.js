@@ -5,15 +5,15 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Configuração do banco de dados (Ajuste com suas credenciais)
 const dbConfig = {
-    user: 'seu_usuario',
-    password: 'sua_senha',
-    server: 'localhost', // Pode ser o IP ou nome do servidor SQL Server
+    user: process.env.DB_USER || 'sa',
+    password: process.env.DB_PASSWORD || 'senha123',
+    server: process.env.DB_SERVER || 'localhost',
     database: 'EscolaABC', // Nome do seu banco de dados
     options: {
-        encrypt: true, // Use true se estiver no Azure
-        trustServerCertificate: true // Necessário para desenvolvimento local
+        encrypt: false,
+        trustServerCertificate: true,
+        instanceName: 'SQLEXPRESS'
     }
 };
 
@@ -29,8 +29,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Rota principal
-app.get('/', (req, res) => {
-    res.render('home', { activeMenu: 'dashboard' });
+app.get('/', async (req, res) => {
+    try {
+        await sql.connect(dbConfig);
+        const result = await sql.query(`
+            SELECT 
+                (SELECT COUNT(*) FROM aluno) AS totalAlunos,
+                (SELECT COUNT(*) FROM professor) AS totalProfessores,
+                (SELECT COUNT(*) FROM turma WHERE turma_ano = YEAR(GETDATE())) AS totalTurmas
+        `);
+        const { totalAlunos, totalProfessores, totalTurmas } = result.recordset[0];
+        res.render('home', { 
+            activeMenu: 'dashboard',
+            totalAlunos: totalAlunos,
+            totalProfessores: totalProfessores,
+            totalTurmas: totalTurmas
+        });
+    } catch (err) {
+        console.error('Erro ao buscar métricas do dashboard:', err);
+        res.render('home', { 
+            activeMenu: 'dashboard',
+            totalAlunos: 'N/A',
+            totalProfessores: 'N/A',
+            totalTurmas: 'N/A'
+        });
+    } finally {
+        sql.close();
+    }
 });
 
 // Rota de login
@@ -39,9 +64,76 @@ app.get('/login', (req, res) => {
 });
 
 // Rota de Alunos
-app.get('/alunos', (req, res) => {
-    res.render('gestao_alunos', { activeMenu: 'alunos' });
+app.get('/alunos', async (req, res) => {
+    try {
+        await sql.connect(dbConfig);
+        const result = await sql.query('SELECT COUNT(*) AS total FROM aluno');
+        const totalAlunos = result.recordset[0].total;
+        res.render('gestao_alunos', { 
+            activeMenu: 'alunos',
+            totalAlunos: totalAlunos
+        });
+    } catch (err) {
+        console.error('Erro ao buscar total de alunos:', err);
+        res.render('gestao_alunos', { 
+            activeMenu: 'alunos',
+            totalAlunos: 0
+        });
+    } finally {
+        sql.close();
+    }
 });
+
+// API para listar, filtrar e paginar alunos
+app.get('/api/alunos', async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const nome = req.query.nome || '';
+        const matricula = req.query.matricula || '';
+        const limit = 100;
+        const offset = (page - 1) * limit;
+
+        await sql.connect(dbConfig);
+        const request = new sql.Request();
+        request.input('nome', sql.VarChar, nome);
+        request.input('matricula', sql.VarChar, matricula);
+        request.input('offset', sql.Int, offset);
+        request.input('limit', sql.Int, limit);
+
+        const countResult = await request.query(`
+            SELECT COUNT(*) AS total
+            FROM aluno a
+            WHERE (@nome = '' OR a.aluno_nome LIKE '%' + @nome + '%')
+              AND (@matricula = '' OR CAST(a.aluno_matricula AS VARCHAR) LIKE '%' + @matricula + '%')
+        `);
+        const totalAlunos = countResult.recordset[0].total;
+        const totalPages = Math.ceil(totalAlunos / limit) || 1;
+
+        const listResult = await request.query(`
+            SELECT a.aluno_matricula, a.aluno_nome, a.aluno_status, t.turma_nome
+            FROM aluno a
+            LEFT JOIN turma t ON a.fk_turma = t.idTurma
+            WHERE (@nome = '' OR a.aluno_nome LIKE '%' + @nome + '%')
+              AND (@matricula = '' OR CAST(a.aluno_matricula AS VARCHAR) LIKE '%' + @matricula + '%')
+            ORDER BY a.aluno_nome
+            OFFSET @offset ROWS
+            FETCH NEXT @limit ROWS ONLY
+        `);
+
+        res.json({
+            alunos: listResult.recordset,
+            totalAlunos: totalAlunos,
+            currentPage: page,
+            totalPages: totalPages
+        });
+    } catch (err) {
+        console.error('Erro na API de alunos:', err);
+        res.status(500).json({ error: 'Erro ao buscar alunos do banco de dados' });
+    } finally {
+        sql.close();
+    }
+});
+
 
 // Rota de Criar Aluno
 app.get('/alunos/novo', (req, res) => {

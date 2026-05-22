@@ -139,10 +139,6 @@
 <!-- TopNavBar -->
 <header class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
 <div class="flex items-center flex-grow">
-<div class="relative w-full max-w-md">
-<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant text-body-md">search</span>
-<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg pl-xl pr-md py-sm font-body-sm text-body-sm focus:outline-none focus:border-primary" placeholder="Buscar alunos por nome..." type="text"/>
-</div>
 </div>
 <div class="flex items-center space-x-lg">
 <div class="flex space-x-md">
@@ -174,50 +170,35 @@
 </div>
 <!-- Bento Layout Grid -->
 <div class="grid grid-cols-12 gap-lg">
-<!-- Left Column: Form -->
+<!-- Left Column: Filter -->
 <div class="col-span-12 lg:col-span-4 space-y-lg">
 <div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-lg shadow-sm">
 <div class="flex items-center mb-md pb-sm border-b border-outline-variant">
-<span class="material-symbols-outlined text-primary mr-sm" data-icon="edit_note">edit_note</span>
-<h3 class="font-title-sm text-title-sm text-primary">Formulário de Aluno</h3>
+<span class="material-symbols-outlined text-primary mr-sm" data-icon="filter_list">filter_list</span>
+<h3 class="font-title-sm text-title-sm text-primary">Filtros de Aluno</h3>
 </div>
-<form class="space-y-md">
+<div class="space-y-md">
 <div class="space-y-xs">
-<label class="font-label-bold text-label-bold text-on-surface-variant">Nome Completo</label>
-<input class="w-full h-[40px] px-md border border-outline rounded focus:ring-0 focus:border-primary font-body-md" placeholder="Ex: João da Silva" type="text"/>
-</div>
-<div class="space-y-xs">
-<label class="font-label-bold text-label-bold text-on-surface-variant">Data de Nascimento</label>
+<label class="font-label-bold text-label-bold text-on-surface-variant block">Nome do Aluno</label>
 <div class="relative">
-<input class="w-full h-[40px] px-md border border-outline rounded focus:ring-0 focus:border-primary font-body-md" type="date"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input id="filter-nome" class="w-full h-[40px] pl-10 pr-md border border-outline rounded focus:ring-0 focus:border-primary font-body-md" placeholder="Filtrar por nome..." type="text"/>
 </div>
 </div>
 <div class="space-y-xs">
-<label class="font-label-bold text-label-bold text-on-surface-variant">Turma / Período</label>
-<select class="w-full h-[40px] px-md border border-outline rounded focus:ring-0 focus:border-primary font-body-md appearance-none bg-white">
-<option value="">Selecione uma turma</option>
-<option value="1a">1º Ano A - Matutino</option>
-<option value="1b">1º Ano B - Vespertino</option>
-<option value="2a">2º Ano A - Matutino</option>
-<option value="3a">3º Ano A - Integral</option>
-</select>
+<label class="font-label-bold text-label-bold text-on-surface-variant block">Matrícula</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="search">search</span>
+<input id="filter-matricula" class="w-full h-[40px] pl-10 pr-md border border-outline rounded focus:ring-0 focus:border-primary font-body-md" placeholder="Filtrar por matrícula..." type="text"/>
 </div>
-<div class="pt-md flex flex-col space-y-sm">
-<button class="bg-secondary text-on-secondary h-[40px] rounded font-label-bold text-label-bold hover:brightness-110 transition-all flex justify-center items-center" type="submit">
-<span class="material-symbols-outlined mr-sm" data-icon="check_circle">check_circle</span>
-                                    Salvar Cadastro
-                                </button>
-<button class="bg-white text-primary border border-primary h-[40px] rounded font-label-bold text-label-bold hover:bg-surface-container-low transition-all" type="reset">
-                                    Limpar Campos
-                                </button>
 </div>
-</form>
+</div>
 </div>
 <!-- Statistics Card (Bento Style) -->
 <div class="bg-primary text-on-primary p-lg rounded-lg flex justify-between items-center">
 <div>
 <p class="text-label-sm opacity-80 uppercase tracking-wider">Total de Alunos</p>
-<h4 class="text-display-lg font-display-lg">1,248</h4>
+<h4 id="total-alunos-count" class="text-display-lg font-display-lg"><%= totalAlunos %></h4>
 </div>
 <div class="bg-secondary-fixed text-on-secondary-fixed p-md rounded-full">
 <span class="material-symbols-outlined text-headline-md" data-icon="trending_up">trending_up</span>
@@ -252,116 +233,16 @@
 <th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider border-b border-outline-variant text-right">Ações</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant">
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">#2024-012</td>
-<td class="px-lg py-md">
-<div class="flex items-center space-x-sm">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-[10px]">AM</div>
-<span class="font-body-md text-body-md text-primary">Ana Maria dos Santos</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">3º Ano A</td>
-<td class="px-lg py-md">
-<span class="bg-[#e6fcf5] text-[#006d37] px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Ativo</span>
-</td>
-<td class="px-lg py-md text-right">
-<div class="flex justify-end space-x-sm opacity-60 group-hover:opacity-100 transition-opacity">
-<button class="p-xs hover:bg-surface-container-high rounded text-primary" title="Editar">
-<span class="material-symbols-outlined text-body-md">edit</span>
-</button>
-<button class="p-xs hover:bg-error-container rounded text-error" title="Excluir">
-<span class="material-symbols-outlined text-body-md">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">#2024-045</td>
-<td class="px-lg py-md">
-<div class="flex items-center space-x-sm">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-[10px]">BP</div>
-<span class="font-body-md text-body-md text-primary">Bruno Pereira Lima</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">1º Ano B</td>
-<td class="px-lg py-md">
-<span class="bg-[#e6fcf5] text-[#006d37] px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Ativo</span>
-</td>
-<td class="px-lg py-md text-right">
-<div class="flex justify-end space-x-sm opacity-60 group-hover:opacity-100 transition-opacity">
-<button class="p-xs hover:bg-surface-container-high rounded text-primary" title="Editar">
-<span class="material-symbols-outlined text-body-md">edit</span>
-</button>
-<button class="p-xs hover:bg-error-container rounded text-error" title="Excluir">
-<span class="material-symbols-outlined text-body-md">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">#2024-098</td>
-<td class="px-lg py-md">
-<div class="flex items-center space-x-sm">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-[10px]">CR</div>
-<span class="font-body-md text-body-md text-primary">Carla Rocha</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">2º Ano A</td>
-<td class="px-lg py-md">
-<span class="bg-[#fff4e6] text-[#d9480f] px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Pendente</span>
-</td>
-<td class="px-lg py-md text-right">
-<div class="flex justify-end space-x-sm opacity-60 group-hover:opacity-100 transition-opacity">
-<button class="p-xs hover:bg-surface-container-high rounded text-primary" title="Editar">
-<span class="material-symbols-outlined text-body-md">edit</span>
-</button>
-<button class="p-xs hover:bg-error-container rounded text-error" title="Excluir">
-<span class="material-symbols-outlined text-body-md">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors group">
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">#2024-156</td>
-<td class="px-lg py-md">
-<div class="flex items-center space-x-sm">
-<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-[10px]">DF</div>
-<span class="font-body-md text-body-md text-primary">Daniel Farias</span>
-</div>
-</td>
-<td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">1º Ano A</td>
-<td class="px-lg py-md">
-<span class="bg-[#e6fcf5] text-[#006d37] px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Ativo</span>
-</td>
-<td class="px-lg py-md text-right">
-<div class="flex justify-end space-x-sm opacity-60 group-hover:opacity-100 transition-opacity">
-<button class="p-xs hover:bg-surface-container-high rounded text-primary" title="Editar">
-<span class="material-symbols-outlined text-body-md">edit</span>
-</button>
-<button class="p-xs hover:bg-error-container rounded text-error" title="Excluir">
-<span class="material-symbols-outlined text-body-md">delete</span>
-</button>
-</div>
-</td>
-</tr>
+<tbody id="alunos-table-body" class="divide-y divide-outline-variant">
+<!-- Preenchido via JavaScript -->
 </tbody>
 </table>
 </div>
 <!-- Pagination -->
 <div class="mt-auto p-md border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center px-lg">
-<span class="text-label-sm text-on-surface-variant">Exibindo 1-4 de 1,248 alunos</span>
-<div class="flex items-center space-x-xs">
-<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low disabled:opacity-30">
-<span class="material-symbols-outlined text-body-md">chevron_left</span>
-</button>
-<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded font-label-bold text-label-bold">1</button>
-<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low font-label-bold text-label-bold">2</button>
-<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low font-label-bold text-label-bold">3</button>
-<span class="px-sm text-on-surface-variant">...</span>
-<button class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low">
-<span class="material-symbols-outlined text-body-md">chevron_right</span>
-</button>
+<span id="pagination-status" class="text-label-sm text-on-surface-variant">Carregando alunos...</span>
+<div id="pagination-buttons" class="flex items-center space-x-xs">
+<!-- Botões de página dinâmicos -->
 </div>
 </div>
 </div>
@@ -369,4 +250,185 @@
 </div>
 </div>
 </main>
+
+<script>
+    let currentPage = 1;
+    let debounceTimer;
+
+    const filterNome = document.getElementById('filter-nome');
+    const filterMatricula = document.getElementById('filter-matricula');
+    const tableBody = document.getElementById('alunos-table-body');
+    const paginationStatus = document.getElementById('pagination-status');
+    const paginationButtons = document.getElementById('pagination-buttons');
+
+    // Função para buscar alunos da API
+    async function loadAlunos(page = 1) {
+        currentPage = page;
+        const nome = filterNome.value;
+        const matricula = filterMatricula.value;
+
+        paginationStatus.textContent = 'Carregando...';
+
+        try {
+            const response = await fetch(`/api/alunos?page=${page}&nome=${encodeURIComponent(nome)}&matricula=${encodeURIComponent(matricula)}`);
+            const data = await response.json();
+
+            if (response.ok) {
+                renderTable(data.alunos);
+                renderPagination(data.currentPage, data.totalPages, data.totalAlunos);
+            } else {
+                tableBody.innerHTML = `<tr><td colspan="5" class="px-lg py-md text-center text-error">Erro ao carregar dados do servidor.</td></tr>`;
+            }
+        } catch (error) {
+            console.error('Erro ao buscar alunos:', error);
+            tableBody.innerHTML = `<tr><td colspan="5" class="px-lg py-md text-center text-error">Erro de rede ao buscar dados.</td></tr>`;
+        }
+    }
+
+    // Função para renderizar as linhas da tabela
+    function renderTable(alunos) {
+        if (!alunos || alunos.length === 0) {
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="5" class="px-lg py-xl text-center text-on-surface-variant font-body-md">
+                        Nenhum aluno encontrado para os filtros aplicados.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        tableBody.innerHTML = alunos.map(aluno => {
+            // Obter as iniciais do aluno para o avatar
+            const names = aluno.aluno_nome.trim().split(/\\s+/);
+            const initials = names.length > 1 
+                ? (names[0][0] + names[names.length - 1][0]).toUpperCase()
+                : names[0][0].toUpperCase();
+
+            // Status formatado (Ativo = 1, Inativo = 0)
+            const statusLabel = aluno.aluno_status ? 'Ativo' : 'Inativo';
+            const statusClass = aluno.aluno_status 
+                ? 'bg-[#e6fcf5] text-[#006d37]' 
+                : 'bg-[#f8d7da] text-[#721c24]'; // Customizado para premium inativo (leve vermelho)
+
+            const turmaLabel = aluno.turma_nome || 'Sem Turma';
+
+            return `
+                <tr class="hover:bg-surface-container-low transition-colors group">
+                    <td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">#${aluno.aluno_matricula}</td>
+                    <td class="px-lg py-md">
+                        <div class="flex items-center space-x-sm">
+                            <div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold text-[10px]">
+                                ${initials}
+                            </div>
+                            <span class="font-body-md text-body-md text-primary">${aluno.aluno_nome}</span>
+                        </div>
+                    </td>
+                    <td class="px-lg py-md font-body-sm text-body-sm text-on-surface-variant">${turmaLabel}</td>
+                    <td class="px-lg py-md">
+                        <span class="${statusClass} px-sm py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">
+                            ${statusLabel}
+                        </span>
+                    </td>
+                    <td class="px-lg py-md text-right">
+                        <div class="flex justify-end space-x-sm opacity-60 group-hover:opacity-100 transition-opacity">
+                            <button class="p-xs hover:bg-surface-container-high rounded text-primary" title="Editar">
+                                <span class="material-symbols-outlined text-body-md">edit</span>
+                            </button>
+                            <button class="p-xs hover:bg-error-container rounded text-error" title="Excluir">
+                                <span class="material-symbols-outlined text-body-md">delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    // Função para renderizar os botões de paginação
+    function renderPagination(currentPage, totalPages, totalAlunos) {
+        // Atualiza texto de status (100 por página)
+        const limit = 100;
+        const start = totalAlunos === 0 ? 0 : (currentPage - 1) * limit + 1;
+        const end = Math.min(currentPage * limit, totalAlunos);
+        paginationStatus.textContent = `Exibindo ${start}-${end} de ${totalAlunos.toLocaleString('pt-BR')} alunos`;
+
+        let buttonsHtml = '';
+
+        // Botão Anterior (Chevron Left)
+        const prevDisabled = currentPage === 1 ? 'disabled' : '';
+        buttonsHtml += `
+            <button onclick="if(currentPage > 1) loadAlunos(currentPage - 1)" 
+                    class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low disabled:opacity-30" 
+                    \${prevDisabled}>
+                <span class="material-symbols-outlined text-body-md">chevron_left</span>
+            </button>
+        `;
+
+        // Regras para mostrar páginas (exibir vizinhos próximos e elipses se houver muitas páginas)
+        const maxVisible = 5;
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+
+        if (endPage - startPage < maxVisible - 1) {
+            startPage = Math.max(1, endPage - maxVisible + 1);
+        }
+
+        if (startPage > 1) {
+            buttonsHtml += `
+                <button onclick="loadAlunos(1)" class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low font-label-bold text-label-bold">1</button>
+            `;
+            if (startPage > 2) {
+                buttonsHtml += `<span class="px-sm text-on-surface-variant">...</span>`;
+            }
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+            const activeClass = i === currentPage 
+                ? 'bg-primary text-on-primary font-label-bold text-label-bold rounded' 
+                : 'border border-outline-variant rounded hover:bg-surface-container-low font-label-bold text-label-bold';
+            buttonsHtml += `
+                <button onclick="loadAlunos(\${i})" class="w-8 h-8 flex items-center justify-center \${activeClass}">\${i}</button>
+            `;
+        }
+
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                buttonsHtml += `<span class="px-sm text-on-surface-variant">...</span>`;
+            }
+            buttonsHtml += `
+                <button onclick="loadAlunos(\${totalPages})" class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low font-label-bold text-label-bold">\${totalPages}</button>
+            `;
+        }
+
+        // Botão Próximo (Chevron Right)
+        const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+        buttonsHtml += `
+            <button onclick="if(currentPage < \${totalPages}) loadAlunos(currentPage + 1)" 
+                    class="w-8 h-8 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-low disabled:opacity-30" 
+                    \${nextDisabled}>
+                <span class="material-symbols-outlined text-body-md">chevron_right</span>
+            </button>
+        `;
+
+        paginationButtons.innerHTML = buttonsHtml;
+    }
+
+    // Função de debounce para busca enquanto digita
+    function onSearchInput() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            loadAlunos(1);
+        }, 200); // 200ms de delay para evitar requisições excessivas
+    }
+
+    // Listeners
+    filterNome.addEventListener('input', onSearchInput);
+    filterMatricula.addEventListener('input', onSearchInput);
+
+    // Carregamento inicial
+    document.addEventListener('DOMContentLoaded', () => {
+        loadAlunos(1);
+    });
+</script>
 </body></html>
