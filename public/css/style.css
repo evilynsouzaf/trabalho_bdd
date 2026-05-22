@@ -32,7 +32,7 @@ body { display: flex; background-color: var(--bg-light); color: var(--text-dark)
 /* Main Content */
 .main-content { margin-left: 260px; flex: 1; padding: 30px; }
 
-.top-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.top-header { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 30px; }
 .search-bar { background: white; padding: 10px 20px; border-radius: 8px; width: 40%; display: flex; align-items: center; gap: 10px; border: 1px solid var(--border-color); }
 .search-bar input { border: none; outline: none; width: 100%; font-size: 14px; }
 .user-info { display: flex; align-items: center; gap: 20px; font-size: 14px; }

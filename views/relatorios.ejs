@@ -3,7 +3,7 @@
 <html class="light" lang="pt-br"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EduManage - Central de Relatórios</title>
+<title>Escola ABC - Central de Relatórios</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -137,45 +137,133 @@
 <h3 class="font-display-lg text-display-lg text-primary mb-xs">Central de Relatórios Escolares</h3>
 <p class="text-on-surface-variant font-body-md">Visualize o desempenho acadêmico e emita documentos oficiais.</p>
 </div>
-<!-- Bento Grid for Report Navigation -->
-<div class="grid grid-cols-12 gap-md mb-xl">
-<!-- R1 -->
-<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-all cursor-pointer group rounded">
-<div class="bg-surface-container-high w-12 h-12 flex items-center justify-center rounded mb-md group-hover:bg-primary-container transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="analytics">analytics</span>
+<!-- Filtro Dinâmico de Relatórios -->
+<div class="bg-surface-container-lowest border border-outline-variant p-lg rounded-lg mb-xl shadow-sm">
+    <div class="flex items-center gap-sm mb-md pb-sm border-b border-outline-variant">
+        <span class="material-symbols-outlined text-primary">filter_alt</span>
+        <h3 class="font-title-sm text-title-sm text-primary">Filtro de Emissão</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-md items-end">
+        
+        <!-- Seleção do Relatório -->
+        <div class="col-span-1 md:col-span-4">
+            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs">Tipo de Relatório</label>
+            <div class="relative">
+                <select id="reportType" class="w-full h-[40px] px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary appearance-none cursor-pointer" onchange="updateFilters()">
+                    <option value="">Selecione um relatório...</option>
+                    <option value="notas_aluno">Relatório de Notas por Aluno</option>
+                    <option value="notas_turma_disc">Relatório de Notas por Turma em Disciplina</option>
+                    <option value="alunos_turma">Relatório de Alunos por Turma</option>
+                    <option value="aprovados_reprovados">Relatório de Aprovação</option>
+                    <option value="disc_professor">Relatório Disciplinas do Professor</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <span class="material-symbols-outlined text-outline">expand_more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtro: Aluno -->
+        <div id="filter-aluno" class="col-span-1 md:col-span-3 hidden">
+            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs">Nome ou Matrícula</label>
+            <input type="text" id="input-aluno" class="w-full h-[40px] px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Ex: João ou 2024001">
+        </div>
+
+        <!-- Filtro: Professor -->
+        <div id="filter-professor" class="col-span-1 md:col-span-3 hidden">
+            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs">Nome do Professor</label>
+            <input type="text" id="input-professor" class="w-full h-[40px] px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Ex: Adriana Lopes">
+        </div>
+
+        <!-- Filtro: Turma -->
+        <div id="filter-turma" class="col-span-1 md:col-span-3 hidden">
+            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs">Turma</label>
+            <div class="relative">
+                <select id="select-turma" class="w-full h-[40px] px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary appearance-none cursor-pointer">
+                    <option value="geral">Geral (Toda a Escola)</option>
+                    <option value="1a">1º Ano A</option>
+                    <option value="1b">1º Ano B</option>
+                    <option value="2a">2º Ano A</option>
+                    <option value="3a">3º Ano A</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <span class="material-symbols-outlined text-outline">expand_more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtro: Disciplina -->
+        <div id="filter-disciplina" class="col-span-1 md:col-span-3 hidden">
+            <label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs">Disciplina</label>
+            <div class="relative">
+                <select id="select-disciplina" class="w-full h-[40px] px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary appearance-none cursor-pointer">
+                    <option value="">(Opcional / Todas)</option>
+                    <option value="mat">Matemática</option>
+                    <option value="port">Português</option>
+                    <option value="fis">Física</option>
+                    <option value="qui">Química</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                    <span class="material-symbols-outlined text-outline">expand_more</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão Gerar -->
+        <div class="col-span-1 md:col-span-2">
+            <button class="w-full h-[40px] bg-primary text-on-primary rounded font-label-bold hover:bg-primary-container transition-colors flex items-center justify-center gap-xs shadow-sm">
+                <span class="material-symbols-outlined text-[18px]">search</span> Gerar
+            </button>
+        </div>
+    </div>
 </div>
-<h4 class="font-title-sm text-title-sm text-primary mb-xs">R1 (Médias por Aluno)</h4>
-<p class="text-label-sm text-on-surface-variant">Análise individual de desempenho por disciplina.</p>
-</div>
-<!-- R2 -->
-<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-all cursor-pointer group rounded">
-<div class="bg-surface-container-high w-12 h-12 flex items-center justify-center rounded mb-md group-hover:bg-primary-container transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="table_chart">table_chart</span>
-</div>
-<h4 class="font-title-sm text-title-sm text-primary mb-xs">R2 (Boletim da Turma)</h4>
-<p class="text-label-sm text-on-surface-variant">Consolidado de notas de todos os alunos da turma.</p>
-</div>
-<!-- R3 -->
-<div class="col-span-12 md:col-span-3 bg-surface-container-lowest border border-outline-variant p-lg hover:border-primary transition-all cursor-pointer group rounded">
-<div class="bg-surface-container-high w-12 h-12 flex items-center justify-center rounded mb-md group-hover:bg-primary-container transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container" data-icon="list_alt">list_alt</span>
-</div>
-<h4 class="font-title-sm text-title-sm text-primary mb-xs">R3 (Listagem por Turma)</h4>
-<p class="text-label-sm text-on-surface-variant">Lista de chamadas e informações cadastrais.</p>
-</div>
-<!-- R4 - Active -->
-<div class="col-span-12 md:col-span-3 bg-primary-container border-2 border-primary p-lg shadow-lg rounded">
-<div class="bg-on-primary-container/20 w-12 h-12 flex items-center justify-center rounded mb-md">
-<span class="material-symbols-outlined text-on-primary-container" data-icon="verified">verified</span>
-</div>
-<h4 class="font-title-sm text-title-sm text-on-primary-container mb-xs">R4 (Status Final)</h4>
-<p class="text-label-sm text-on-primary-container/80">Resultados finais e situação de aprovação.</p>
-<div class="mt-md flex items-center gap-xs text-on-primary-container font-label-bold text-label-bold">
-<span>Ativo agora</span>
-<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
-</div>
-</div>
-</div>
+
+<script>
+function updateFilters() {
+    const type = document.getElementById('reportType').value;
+    const fTurma = document.getElementById('filter-turma');
+    const fDisc = document.getElementById('filter-disciplina');
+    const fAluno = document.getElementById('filter-aluno');
+    const fProf = document.getElementById('filter-professor');
+    const selTurma = document.getElementById('select-turma');
+
+    // Reset visibilidade
+    fTurma.classList.add('hidden');
+    fDisc.classList.add('hidden');
+    fAluno.classList.add('hidden');
+    fProf.classList.add('hidden');
+    
+    if (type === 'notas_aluno') {
+        fTurma.classList.remove('hidden');
+        fAluno.classList.remove('hidden');
+        selTurma.options[0].text = "Geral (Toda a Escola)";
+    } else if (type === 'notas_turma_disc') {
+        fTurma.classList.remove('hidden');
+        fDisc.classList.remove('hidden');
+        selTurma.options[0].text = "Selecione a Turma";
+    } else if (type === 'alunos_turma') {
+        fTurma.classList.remove('hidden');
+        selTurma.options[0].text = "Selecione a Turma";
+    } else if (type === 'aprovados_reprovados') {
+        fTurma.classList.remove('hidden');
+        fDisc.classList.remove('hidden');
+        selTurma.options[0].text = "Selecione a Turma";
+    } else if (type === 'disc_professor') {
+        fProf.classList.remove('hidden');
+        fDisc.classList.remove('hidden');
+    }
+}
+
+window.onload = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const report = urlParams.get('report');
+    if (report) {
+        const reportTypeEl = document.getElementById('reportType');
+        if (reportTypeEl) reportTypeEl.value = report;
+    }
+    updateFilters();
+};
+</script>
 <!-- Report Data Section: R4 Example -->
 <div class="bg-surface-container-lowest border border-outline-variant rounded overflow-hidden">
 <div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
@@ -184,13 +272,13 @@
 <p class="text-on-surface-variant font-label-bold text-label-bold">Turma: 3º Ano Ensino Médio - Matutino</p>
 </div>
 <div class="flex gap-md">
-<button class="bg-surface border border-outline-variant text-primary px-md py-sm rounded font-label-bold flex items-center gap-sm hover:bg-surface-container transition-colors">
+<button class="bg-surface border border-outline-variant text-primary px-md py-sm rounded font-label-bold flex items-center gap-sm hover:bg-surface-container transition-colors" onclick="window.print()">
 <span class="material-symbols-outlined" data-icon="file_download">file_download</span>
                         Exportar PDF
                     </button>
-<button class="bg-primary text-on-primary px-md py-sm rounded font-label-bold flex items-center gap-sm active:opacity-80 transition-all">
+<button class="bg-primary text-on-primary px-md py-sm rounded font-label-bold flex items-center gap-sm active:opacity-80 transition-all" onclick="window.print()">
 <span class="material-symbols-outlined" data-icon="print">print</span>
-                        Imprimir Todos
+                        Imprimir
                     </button>
 </div>
 </div>
@@ -204,7 +292,7 @@
 <th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider text-center">Frequência (%)</th>
 <th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider text-center">Média Geral</th>
 <th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Status</th>
-<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider text-right">Ações</th>
+
 </tr>
 </thead>
 <tbody class="divide-y divide-outline-variant">
@@ -217,9 +305,7 @@
 <td class="px-lg py-md">
 <span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-bold text-label-sm">APROVADO</span>
 </td>
-<td class="px-lg py-md text-right">
-<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
-</td>
+
 </tr>
 <!-- Student 2 -->
 <tr class="hover:bg-surface-container-lowest transition-colors">
@@ -230,9 +316,7 @@
 <td class="px-lg py-md">
 <span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-bold text-label-sm">APROVADO</span>
 </td>
-<td class="px-lg py-md text-right">
-<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
-</td>
+
 </tr>
 <!-- Student 3 -->
 <tr class="hover:bg-surface-container-lowest transition-colors">
@@ -243,9 +327,7 @@
 <td class="px-lg py-md">
 <span class="bg-error-container text-on-error-container px-sm py-xs rounded-full font-label-bold text-label-sm">REPROVADO</span>
 </td>
-<td class="px-lg py-md text-right">
-<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
-</td>
+
 </tr>
 <!-- Student 4 -->
 <tr class="hover:bg-surface-container-lowest transition-colors">
@@ -256,9 +338,7 @@
 <td class="px-lg py-md">
 <span class="bg-surface-container-high text-primary px-sm py-xs rounded-full font-label-bold text-label-sm">RECUPERAÇÃO</span>
 </td>
-<td class="px-lg py-md text-right">
-<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
-</td>
+
 </tr>
 <!-- Student 5 -->
 <tr class="hover:bg-surface-container-lowest transition-colors">
@@ -269,9 +349,7 @@
 <td class="px-lg py-md">
 <span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-bold text-label-sm">APROVADO</span>
 </td>
-<td class="px-lg py-md text-right">
-<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
-</td>
+
 </tr>
 </tbody>
 </table>
