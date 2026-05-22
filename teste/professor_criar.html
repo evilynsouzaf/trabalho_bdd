@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduManage - Gestão de Professores</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006d37",
+                    "on-tertiary-fixed-variant": "#454748",
+                    "tertiary": "#0c0e0f",
+                    "surface-container-highest": "#dbe4ed",
+                    "surface-container": "#e6eff8",
+                    "on-primary-fixed": "#001b3d",
+                    "primary-fixed-dim": "#adc7f8",
+                    "inverse-primary": "#adc7f8",
+                    "on-tertiary-container": "#898b8c",
+                    "on-surface": "#141d23",
+                    "surface": "#f6faff",
+                    "secondary-fixed-dim": "#4ae183",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#2c4771",
+                    "secondary-container": "#6bfe9c",
+                    "surface-dim": "#d2dbe4",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "background": "#f6faff",
+                    "on-secondary-container": "#00743a",
+                    "outline": "#74777f",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "tertiary-fixed": "#e1e3e4",
+                    "tertiary-container": "#212425",
+                    "surface-container-high": "#e0e9f2",
+                    "surface-tint": "#455f8a",
+                    "on-surface-variant": "#43474e",
+                    "on-primary": "#ffffff",
+                    "primary": "#000e24",
+                    "error": "#ba1a1a",
+                    "on-background": "#141d23",
+                    "on-secondary-fixed-variant": "#005228",
+                    "surface-variant": "#dbe4ed",
+                    "surface-bright": "#f6faff",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-on-surface": "#e9f2fb",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#718bb9",
+                    "secondary-fixed": "#6bfe9c",
+                    "on-secondary-fixed": "#00210c",
+                    "inverse-surface": "#293138",
+                    "surface-container-low": "#ecf5fe",
+                    "primary-container": "#00234b",
+                    "outline-variant": "#c4c6d0",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#191c1d",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "gutter": "16px",
+                    "sidebar_width": "260px",
+                    "header_height": "64px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "title-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-bold": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f6faff;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface">
+<!-- SIDEBAR -->
+<aside class="bg-primary dark:bg-primary text-on-primary w-sidebar_width h-screen fixed left-0 top-0 border-r border-outline-variant flex flex-col h-full py-md z-20">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">EduManage</h1>
+<p class="text-on-primary-container/70 text-label-sm">Administração Escolar</p>
+</div>
+<nav class="flex-1 space-y-xs px-sm">
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Alunos</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span>Notas</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container border-l-4 border-secondary-fixed rounded-r-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Professores</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Turmas</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Relatórios</span>
+</a>
+</nav>
+<div class="px-sm mt-auto pt-md border-t border-on-primary/10">
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configurações</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary-container/70 hover:text-on-primary transition-colors hover:bg-primary-container/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sair</span>
+</a>
+</div>
+</aside>
+<!-- TOP NAVBAR -->
+<header class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-1/3 max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-body-md" placeholder="Procurar professor..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full">help_outline</span>
+<div class="flex items-center gap-sm ml-md">
+<div class="text-right">
+<p class="font-label-bold text-label-bold text-primary">Admin Principal</p>
+<p class="text-label-sm text-on-surface-variant">Gestor Escolar</p>
+</div>
+<img alt="Foto do Administrador" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a mature administrative manager in a corporate setting. He is wearing a sharp charcoal suit and white shirt, smiling confidently at the camera. The background is a soft-focus modern office with glass walls and professional blue-toned lighting that matches the school management system aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBIt4r3SlHuwfBYkF5IYBO8U3-U21YYiN6EQ5kcjSI-Y1t-AaFZeGX_2R1SUgOhR6NJ2Vvu7K1CcSPGL-jDgkOUAhSFwWQ06kE7QScPk49_AOdODxMBYs4gc4U6u8mKV_wib7LcRGypQWFk-c6nAKhnYxtvfM-7dPRB7QnFb5jsDa89HerV9QuQVg8HeZ2FdjU7iGA8cz7DFh8ObHbPGV_NNNkxPVsiP7l1szYMKvTXxH5xvPipnnQOvBX1IJO6a7WFs2fzAlQeo"/>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="ml-sidebar_width mt-header_height p-lg flex gap-lg min-h-[calc(100vh-64px)]">
+<!-- LEFT PANEL: GRID / TABLE -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Lista de Professores</h2>
+<p class="text-body-sm text-on-surface-variant">Gerencie o corpo docente da instituição</p>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded font-label-bold flex items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+                    Novo Cadastro
+                </button>
+</div>
+<div class="overflow-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-[#F1F3F5] z-10 border-b border-outline-variant">
+<tr>
+<th class="px-lg py-md font-label-bold text-on-surface-variant uppercase tracking-wider">Professor</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant uppercase tracking-wider">Especialidade</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-lg py-md font-label-bold text-on-surface-variant uppercase tracking-wider text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">RM</div>
+<div>
+<p class="font-label-bold text-primary">Ricardo Mendes</p>
+<p class="text-label-sm text-on-surface-variant">ID: #00234</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container text-primary px-sm py-xs rounded text-label-sm">Matemática Avançada</span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#E9F7EF] text-[#1E8449] px-md py-xs rounded-full text-label-sm font-label-bold">Ativo</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-outline hover:text-primary p-xs"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-outline hover:text-error p-xs"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">AF</div>
+<div>
+<p class="font-label-bold text-primary">Ana Ferreira</p>
+<p class="text-label-sm text-on-surface-variant">ID: #00245</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container text-primary px-sm py-xs rounded text-label-sm">Língua Portuguesa</span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#EBF5FB] text-[#2E86C1] px-md py-xs rounded-full text-label-sm font-label-bold">Licença</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-outline hover:text-primary p-xs"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-outline hover:text-error p-xs"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed-dim flex items-center justify-center text-on-tertiary-fixed font-bold">GS</div>
+<div>
+<p class="font-label-bold text-primary">Gabriel Souza</p>
+<p class="text-label-sm text-on-surface-variant">ID: #00256</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="bg-surface-container text-primary px-sm py-xs rounded text-label-sm">História Moderna</span>
+</td>
+<td class="px-lg py-md">
+<span class="bg-[#E9F7EF] text-[#1E8449] px-md py-xs rounded-full text-label-sm font-label-bold">Ativo</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-outline hover:text-primary p-xs"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-outline hover:text-error p-xs"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md border-t border-outline-variant bg-surface-container-lowest flex justify-between items-center">
+<span class="text-label-sm text-on-surface-variant">Exibindo 3 de 156 professores</span>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-outline hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-on-primary text-label-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-label-bold">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-label-bold">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-outline hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: FORM -->
+<div class="w-[380px] bg-white rounded-xl border border-outline-variant shadow-sm flex flex-col">
+<div class="p-lg border-b border-outline-variant">
+<h3 class="font-title-sm text-title-sm text-primary">Cadastro do Professor</h3>
+<p class="text-body-sm text-on-surface-variant">Preencha os campos para salvar</p>
+</div>
+<form class="p-lg flex-1 space-y-lg">
+<div class="space-y-sm">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Nome Completo</label>
+<input class="w-full h-[40px] px-md border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Ex: Ricardo Mendes" type="text"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Especialidade / Disciplina</label>
+<input class="w-full h-[40px] px-md border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Ex: Matemática, Física..." type="text"/>
+</div>
+<div class="space-y-sm">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Nível de Acesso</label>
+<select class="w-full h-[40px] px-md border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary outline-none appearance-none bg-no-repeat bg-[right_12px_center]">
+<option>Professor Padrão</option>
+<option>Coordenador de Área</option>
+<option>Substitutivo</option>
+</select>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg border border-outline-variant/50">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-xs">info</span>
+<p class="text-body-sm text-on-surface-variant">Ao cadastrar um novo professor, uma senha temporária será enviada automaticamente para o e-mail institucional.</p>
+</div>
+</div>
+<div class="pt-lg border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full bg-[#2ECC71] text-white py-sm rounded font-label-bold hover:brightness-105 transition-all shadow-sm" type="submit">
+                        Salvar Professor
+                    </button>
+<button class="w-full bg-white text-primary border border-primary py-sm rounded font-label-bold hover:bg-surface-container-low transition-all" type="reset">
+                        Limpar Formulário
+                    </button>
+</div>
+</form>
+<div class="p-lg bg-surface-container-lowest mt-auto rounded-b-xl">
+<div class="relative h-32 rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" data-alt="A clean, minimalist university hallway with natural morning light streaming through tall windows. The architecture is modern with polished concrete floors and white walls. The scene conveys a sense of academic prestige and quiet focus, perfectly complementing the professional school management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdyN8Vdx7oVmxj3O5l9w5LcAGDsrPISV_fd065tZrNDhdqim6QM-z1SX01cq9xrm73eX4Axk9ImNQy4Il3c4zOusB6xoIK8tlutMYfsgv30TLoQbJ43FhzeqH68mlTusKujcWfqQlDpSqpq0E55wz1-Jw4Lmpx4aR3fhsblFFhJxK9a9CS0Ao4E0I2I46SWbEGetBBvbtnJ13g4iVx3Q65-Weo01qu24QP7De7gTLgv9TqvdhDQk5VlLLm9TSOmPNzJRDBUp2TCC4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<p class="absolute bottom-md left-md text-white font-label-bold text-label-sm">Campus Principal - Bloco A</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

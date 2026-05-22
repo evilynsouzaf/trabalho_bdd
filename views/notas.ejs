@@ -159,39 +159,32 @@
 <div class="flex-1 min-w-[240px]">
 <label class="block font-label-bold text-on-surface-variant mb-xs">Selecione a Turma</label>
 <div class="relative">
-<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
-<option>3º Ano A - Ensino Médio</option>
-<option>3º Ano B - Ensino Médio</option>
-<option>2º Ano A - Ensino Médio</option>
+<select id="select-turma" class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
+<% if (locals.turmas && turmas.length > 0) { %>
+    <% turmas.forEach(turma => { %>
+        <option value="<%= turma.idTurma %>"><%= turma.turma_nome %> (<%= turma.turma_ano %>)</option>
+    <% }); %>
+<% } else { %>
+    <option value="">Nenhuma turma encontrada</option>
+<% } %>
 </select>
-
 </div>
 </div>
 <div class="flex-1 min-w-[240px]">
 <label class="block font-label-bold text-on-surface-variant mb-xs">Selecione a Disciplina</label>
 <div class="relative">
-<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
-<option>Matemática Aplicada</option>
-<option>Física Quântica</option>
-<option>Língua Portuguesa</option>
-<option>História Geral</option>
+<select id="select-disciplina" class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
+<% if (locals.disciplinas && disciplinas.length > 0) { %>
+    <% disciplinas.forEach(disciplina => { %>
+        <option value="<%= disciplina.idDisc %>"><%= disciplina.disc_nome %></option>
+    <% }); %>
+<% } else { %>
+    <option value="">Nenhuma disciplina encontrada</option>
+<% } %>
 </select>
-
 </div>
 </div>
-<div class="flex-1 min-w-[240px]">
-<label class="block font-label-bold text-on-surface-variant mb-xs">Período Letivo</label>
-<div class="relative">
-<select class="w-full h-[40px] border border-outline rounded px-md appearance-none bg-surface-container-lowest focus:border-primary focus:ring-0">
-<option>1º Bimestre</option>
-<option>2º Bimestre</option>
-<option>3º Bimestre</option>
-<option>4º Bimestre</option>
-</select>
-
-</div>
-</div>
-<button class="bg-primary text-on-primary px-xl h-[40px] rounded font-label-bold flex items-center gap-sm hover:opacity-90 transition-opacity">
+<button id="btn-filtrar" class="bg-primary text-on-primary px-xl h-[40px] rounded font-label-bold flex items-center gap-sm hover:opacity-90 transition-opacity">
 <span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
                             Filtrar
                         </button>
@@ -201,7 +194,7 @@
 <section class="col-span-12 lg:col-span-8 bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
 <div class="bg-surface-container px-lg py-md border-b border-outline-variant flex justify-between items-center">
 <h4 class="font-title-sm text-primary">Lista de Alunos</h4>
-<span class="text-label-sm text-on-surface-variant">32 alunos encontrados</span>
+<span id="total-alunos-contador" class="text-label-sm text-on-surface-variant">0 alunos encontrados</span>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse">
@@ -216,74 +209,18 @@
 <th class="px-lg py-md font-label-bold text-on-surface-variant text-[12px] border-b border-outline-variant">STATUS</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-outline-variant">
-<tr class="hover:bg-surface-container-low transition-colors cursor-pointer bg-blue-50/50">
-<td class="px-lg py-md font-label-bold text-primary">2024001</td>
-<td class="px-lg py-md text-on-surface">Ana Beatriz Silva</td>
-<td class="px-lg py-md text-center text-on-surface-variant">8.5</td>
-<td class="px-lg py-md text-center text-on-surface-variant">9.0</td>
-<td class="px-lg py-md text-center text-on-surface-variant">--</td>
-<td class="px-lg py-md text-center font-bold text-primary">8.8</td>
-<td class="px-lg py-md">
-<span class="px-sm py-xs rounded-full bg-blue-100 text-primary text-[11px] font-bold uppercase tracking-wider">Pendente</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
-<td class="px-lg py-md font-label-bold text-primary">2024042</td>
-<td class="px-lg py-md text-on-surface">Carlos Eduardo Pereira</td>
-<td class="px-lg py-md text-center text-on-surface-variant">7.0</td>
-<td class="px-lg py-md text-center text-on-surface-variant">6.5</td>
-<td class="px-lg py-md text-center text-on-surface-variant">7.5</td>
-<td class="px-lg py-md text-center font-bold text-primary">7.0</td>
-<td class="px-lg py-md">
-<span class="px-sm py-xs rounded-full bg-green-100 text-secondary text-[11px] font-bold uppercase tracking-wider">Aprovado</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
-<td class="px-lg py-md font-label-bold text-primary">2024015</td>
-<td class="px-lg py-md text-on-surface">Daniela Souza Oliveira</td>
-<td class="px-lg py-md text-center text-on-surface-variant">4.5</td>
-<td class="px-lg py-md text-center text-on-surface-variant">5.0</td>
-<td class="px-lg py-md text-center text-on-surface-variant">3.0</td>
-<td class="px-lg py-md text-center font-bold text-error">4.2</td>
-<td class="px-lg py-md">
-<span class="px-sm py-xs rounded-full bg-red-100 text-error text-[11px] font-bold uppercase tracking-wider">Reprovado</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
-<td class="px-lg py-md font-label-bold text-primary">2024089</td>
-<td class="px-lg py-md text-on-surface">Gabriel Henrique Lima</td>
-<td class="px-lg py-md text-center text-on-surface-variant">10.0</td>
-<td class="px-lg py-md text-center text-on-surface-variant">9.5</td>
-<td class="px-lg py-md text-center text-on-surface-variant">--</td>
-<td class="px-lg py-md text-center font-bold text-primary">9.8</td>
-<td class="px-lg py-md">
-<span class="px-sm py-xs rounded-full bg-blue-100 text-primary text-[11px] font-bold uppercase tracking-wider">Pendente</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
-<td class="px-lg py-md font-label-bold text-primary">2024102</td>
-<td class="px-lg py-md text-on-surface">Isabela Martins</td>
-<td class="px-lg py-md text-center text-on-surface-variant">8.0</td>
-<td class="px-lg py-md text-center text-on-surface-variant">7.5</td>
-<td class="px-lg py-md text-center text-on-surface-variant">8.0</td>
-<td class="px-lg py-md text-center font-bold text-primary">7.8</td>
-<td class="px-lg py-md">
-<span class="px-sm py-xs rounded-full bg-green-100 text-secondary text-[11px] font-bold uppercase tracking-wider">Aprovado</span>
+<tbody id="tabela-notas-corpo" class="divide-y divide-outline-variant">
+<tr id="empty-state-row">
+<td colspan="7" class="px-lg py-xl text-center text-on-surface-variant bg-surface-container-lowest">
+    Selecione a turma e disciplina e clique em <strong>Filtrar</strong> para exibir a listagem de notas.
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="p-md bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
-<p class="text-label-sm text-on-surface-variant">Exibindo 1-10 de 32 alunos</p>
-<div class="flex gap-xs">
-<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span></button>
-<button class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center text-label-bold">1</button>
-<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white text-label-bold">2</button>
-<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white text-label-bold">3</button>
-<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-white"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span></button>
-</div>
+<p class="text-label-sm text-on-surface-variant">Nenhum filtro aplicado</p>
+<div class="text-label-sm text-on-surface-variant italic">Utilize os seletores acima</div>
 </div>
 </section>
 <!-- Input Form Section (Side Panel) -->
@@ -295,37 +232,37 @@
 </div>
 <div>
 <h4 class="font-title-sm text-primary">Lançamento</h4>
-<p class="text-label-sm text-on-surface-variant">Ana Beatriz Silva (2024001)</p>
+<p id="nome-aluno-lancamento" class="text-label-sm text-on-surface-variant italic">Nenhum aluno selecionado</p>
 </div>
 </div>
-<form class="space-y-lg">
+<form id="form-lancamento" class="space-y-lg opacity-50 pointer-events-none transition-opacity duration-300">
 <div>
 <label class="block font-label-bold text-on-surface-variant mb-xs">Nota 1 (N1)</label>
-<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" step="0.1" type="number" value="8.5"/>
+<input id="input-nota1" class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" min="0" max="10" step="0.1" type="number" disabled/>
 </div>
 <div>
 <label class="block font-label-bold text-on-surface-variant mb-xs">Nota 2 (N2)</label>
-<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" step="0.1" type="number" value="9.0"/>
+<input id="input-nota2" class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" min="0" max="10" step="0.1" type="number" disabled/>
 </div>
 <div>
 <label class="block font-label-bold text-on-surface-variant mb-xs">Nota 3 (N3)</label>
-<input class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md border-primary-container ring-1 ring-primary-container" placeholder="Insira a nota..." step="0.1" type="number"/>
+<input id="input-nota3" class="w-full h-[40px] border border-outline rounded px-md focus:border-primary focus:ring-0 text-body-md" placeholder="0.0" min="0" max="10" step="0.1" type="number" disabled/>
 </div>
 <div class="pt-md bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
 <div class="flex justify-between items-center mb-xs">
 <span class="text-label-sm text-on-surface-variant">Média Parcial:</span>
-<span class="font-headline-md text-primary">8.8</span>
+<span id="media-parcial-valor" class="font-headline-md text-primary">--</span>
 </div>
 <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
-<div class="bg-secondary h-full" style="width: 88%;"></div>
+<div id="media-parcial-barra" class="bg-secondary h-full transition-all duration-300" style="width: 0%;"></div>
 </div>
 </div>
 <div class="flex flex-col gap-sm pt-md">
-<button class="bg-secondary text-on-secondary w-full py-md rounded-lg font-label-bold flex items-center justify-center gap-sm shadow-lg shadow-secondary/10 hover:brightness-110 transition-all" type="button">
+<button id="btn-salvar-notas" class="bg-secondary text-on-secondary w-full py-md rounded-lg font-label-bold flex items-center justify-center gap-sm shadow-lg shadow-secondary/10 hover:brightness-110 transition-all cursor-not-allowed opacity-80" type="button" disabled>
 <span class="material-symbols-outlined" data-icon="save">save</span>
                                     Salvar Notas
                                 </button>
-<button class="border border-outline text-on-surface-variant w-full py-md rounded-lg font-label-bold hover:bg-surface-container-low transition-colors" type="button">
+<button id="btn-limpar-notas" class="border border-outline text-on-surface-variant w-full py-md rounded-lg font-label-bold hover:bg-surface-container-low transition-colors" type="button">
                                     Limpar Campos
                                 </button>
 </div>
@@ -345,4 +282,314 @@
 </main>
 <!-- Contextual FAB (Hidden as per relevance check, but keeping structure for shell consistency if needed) -->
 <!-- FAB is suppressed here because the primary action is embedded in the main dashboard/form flow -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const selectTurma = document.getElementById('select-turma');
+    const selectDisciplina = document.getElementById('select-disciplina');
+    const btnFiltrar = document.getElementById('btn-filtrar');
+    const tabelaCorpo = document.getElementById('tabela-notas-corpo');
+    const totalContador = document.getElementById('total-alunos-contador');
+    const paginacaoDiv = document.querySelector('.p-md.bg-surface-container-low.border-t');
+
+    // Elementos do painel lateral
+    const formLancamento = document.getElementById('form-lancamento');
+    const nomeAlunoLancamento = document.getElementById('nome-aluno-lancamento');
+    const inputNota1 = document.getElementById('input-nota1');
+    const inputNota2 = document.getElementById('input-nota2');
+    const inputNota3 = document.getElementById('input-nota3');
+    const mediaValor = document.getElementById('media-parcial-valor');
+    const mediaBarra = document.getElementById('media-parcial-barra');
+    const btnSalvar = document.getElementById('btn-salvar-notas');
+    const btnLimpar = document.getElementById('btn-limpar-notas');
+
+    let alunosDados = [];
+    let alunoSelecionado = null;
+
+    // Função para atualizar a média calculada no formulário lateral
+    function recalcularMediaForm() {
+        const n1 = parseFloat(inputNota1.value);
+        const n2 = parseFloat(inputNota2.value);
+        const n3 = parseFloat(inputNota3.value);
+
+        // Se pelo menos uma nota estiver preenchida, calculamos a média das notas preenchidas
+        let preenchidas = 0;
+        let soma = 0;
+        if (!isNaN(n1)) { soma += n1; preenchidas++; }
+        if (!isNaN(n2)) { soma += n2; preenchidas++; }
+        if (!isNaN(n3)) { soma += n3; preenchidas++; }
+
+        if (preenchidas > 0) {
+            const media = (soma / 3.0).toFixed(1);
+            mediaValor.textContent = media;
+            mediaBarra.style.width = `${media * 10}%`;
+            
+            // Muda cor da média com base no valor
+            if (media >= 7.0) {
+                mediaValor.className = 'font-headline-md text-secondary';
+                mediaBarra.className = 'bg-secondary h-full transition-all duration-300';
+            } else if (preenchidas === 3) {
+                mediaValor.className = 'font-headline-md text-error';
+                mediaBarra.className = 'bg-error h-full transition-all duration-300';
+            } else {
+                mediaValor.className = 'font-headline-md text-primary';
+                mediaBarra.className = 'bg-primary-container h-full transition-all duration-300';
+            }
+        } else {
+            mediaValor.textContent = '--';
+            mediaBarra.style.width = '0%';
+            mediaValor.className = 'font-headline-md text-primary';
+        }
+    }
+
+    [inputNota1, inputNota2, inputNota3].forEach(input => {
+        input.addEventListener('input', () => {
+            // Limitar entre 0 e 10
+            let val = parseFloat(input.value);
+            if (val < 0) input.value = 0;
+            if (val > 10) input.value = 10;
+            recalcularMediaForm();
+        });
+    });
+
+    // Função para selecionar um aluno da tabela
+    window.selecionarAluno = (idAluno) => {
+        const aluno = alunosDados.find(a => a.idAluno === idAluno);
+        if (!aluno) return;
+
+        alunoSelecionado = aluno;
+        nomeAlunoLancamento.textContent = `${aluno.aluno_nome} (${aluno.aluno_matricula})`;
+        nomeAlunoLancamento.classList.remove('italic');
+
+        // Preenche notas
+        inputNota1.value = aluno.avali_nota1 !== null ? aluno.avali_nota1 : '';
+        inputNota2.value = aluno.avali_nota2 !== null ? aluno.avali_nota2 : '';
+        inputNota3.value = aluno.avali_nota3 !== null ? aluno.avali_nota3 : '';
+
+        // Habilita formulário
+        formLancamento.classList.remove('opacity-50', 'pointer-events-none');
+        [inputNota1, inputNota2, inputNota3, btnSalvar].forEach(el => {
+            el.removeAttribute('disabled');
+        });
+        btnSalvar.classList.remove('cursor-not-allowed', 'opacity-80');
+
+        recalcularMediaForm();
+
+        // Remove classe ativa de todas as linhas e adiciona na selecionada
+        document.querySelectorAll('#tabela-notas-corpo tr').forEach(row => {
+            row.classList.remove('bg-blue-50/50', 'border-l-4', 'border-primary');
+        });
+        const activeRow = document.getElementById(`aluno-row-${idAluno}`);
+        if (activeRow) {
+            activeRow.classList.add('bg-blue-50/50', 'border-l-4', 'border-primary');
+        }
+    };
+
+    // Botão Limpar
+    btnLimpar.addEventListener('click', () => {
+        inputNota1.value = '';
+        inputNota2.value = '';
+        inputNota3.value = '';
+        recalcularMediaForm();
+    });
+
+    // Botão Salvar
+    btnSalvar.addEventListener('click', async () => {
+        if (!alunoSelecionado) return;
+
+        const idTurma = selectTurma.value;
+        const idDisc = selectDisciplina.value;
+
+        // Feedback de salvamento
+        btnSalvar.setAttribute('disabled', 'true');
+        btnSalvar.innerHTML = `<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Salvando...`;
+
+        try {
+            const response = await fetch('/api/notas/salvar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    idAluno: alunoSelecionado.idAluno,
+                    idTurma: idTurma,
+                    idDisc: idDisc,
+                    nota1: inputNota1.value,
+                    nota2: inputNota2.value,
+                    nota3: inputNota3.value
+                })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                // Atualizar dados na lista e recarregar filtro
+                await filtrarNotas(false); // recarrega a tabela mantendo seleção do aluno
+                
+                // Mostrar banner de sucesso temporário
+                const banner = document.createElement('div');
+                banner.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-md py-sm rounded shadow-lg z-50 flex items-center gap-sm transition-all duration-300';
+                banner.innerHTML = `<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> ` + data.message;
+                document.body.appendChild(banner);
+                setTimeout(() => {
+                    banner.remove();
+                }, 3000);
+            } else {
+                alert('Erro ao salvar: ' + data.error);
+            }
+        } catch (err) {
+            console.error('Erro de rede ao salvar notas:', err);
+            alert('Erro de rede ao tentar salvar as notas.');
+        } finally {
+            btnSalvar.removeAttribute('disabled');
+            btnSalvar.innerHTML = `<span class="material-symbols-outlined" data-icon="save">save</span> Salvar Notas`;
+        }
+    });
+
+    // Função de Filtrar Notas
+    async function filtrarNotas(resetSelection = true) {
+        const idTurma = selectTurma.value;
+        const idDisc = selectDisciplina.value;
+
+        if (!idTurma || !idDisc) return;
+
+        // Mostrar loading na tabela
+        tabelaCorpo.innerHTML = `
+            <tr>
+                <td colspan="7" class="px-lg py-xl text-center text-on-surface-variant bg-surface-container-lowest">
+                    <span class="material-symbols-outlined animate-spin text-[32px] text-primary" data-icon="sync">sync</span>
+                    <p class="mt-xs font-label-bold">Buscando alunos e notas...</p>
+                </td>
+            </tr>
+        `;
+
+        try {
+            const response = await fetch(`/api/notas?idTurma=${idTurma}&idDisc=${idDisc}`);
+            const data = await response.json();
+
+            if (data.sucesso) {
+                alunosDados = data.alunos;
+                totalContador.textContent = `${alunosDados.length} alunos encontrados`;
+
+                // Atualizar texto do painel de paginação
+                if (paginacaoDiv) {
+                    paginacaoDiv.innerHTML = `
+                        <p class="text-label-sm text-on-surface-variant">Exibindo todos os ${alunosDados.length} alunos da turma</p>
+                        <div class="text-label-sm text-on-surface-variant italic">Selecione um aluno para lançar notas</div>
+                    `;
+                }
+
+                if (alunosDados.length === 0) {
+                    tabelaCorpo.innerHTML = `
+                        <tr>
+                            <td colspan="7" class="px-lg py-xl text-center text-on-surface-variant bg-surface-container-lowest">
+                                Nenhum aluno cadastrado nesta turma.
+                            </td>
+                        </tr>
+                    `;
+                    // Resetar form
+                    resetForm();
+                    return;
+                }
+
+                tabelaCorpo.innerHTML = '';
+                alunosDados.forEach(aluno => {
+                    const row = document.createElement('tr');
+                    row.id = `aluno-row-${aluno.idAluno}`;
+                    row.className = 'hover:bg-surface-container-low transition-colors cursor-pointer border-b border-outline-variant';
+                    row.setAttribute('onclick', `selecionarAluno(${aluno.idAluno})`);
+
+                    const n1 = aluno.avali_nota1 !== null ? aluno.avali_nota1.toFixed(1) : '--';
+                    const n2 = aluno.avali_nota2 !== null ? aluno.avali_nota2.toFixed(1) : '--';
+                    const n3 = aluno.avali_nota3 !== null ? aluno.avali_nota3.toFixed(1) : '--';
+                    
+                    let media = '--';
+                    let statusLabel = 'Pendente';
+                    let badgeClass = 'bg-blue-100 text-primary';
+                    let mediaClass = 'text-on-surface-variant';
+
+                    if (aluno.avali_nota1 !== null && aluno.avali_nota2 !== null && aluno.avali_nota3 !== null) {
+                        media = aluno.avali_media !== null ? aluno.avali_media.toFixed(1) : ((aluno.avali_nota1 + aluno.avali_nota2 + aluno.avali_nota3) / 3.0).toFixed(1);
+                        const mediaNum = parseFloat(media);
+                        if (mediaNum >= 7.0) {
+                            statusLabel = 'Aprovado';
+                            badgeClass = 'bg-green-100 text-secondary';
+                            mediaClass = 'font-bold text-secondary';
+                        } else {
+                            statusLabel = 'Reprovado';
+                            badgeClass = 'bg-red-100 text-error';
+                            mediaClass = 'font-bold text-error';
+                        }
+                    } else if (aluno.avali_nota1 !== null || aluno.avali_nota2 !== null || aluno.avali_nota3 !== null) {
+                        // Média parcial
+                        let soma = 0;
+                        let cont = 0;
+                        if (aluno.avali_nota1 !== null) { soma += aluno.avali_nota1; cont++; }
+                        if (aluno.avali_nota2 !== null) { soma += aluno.avali_nota2; cont++; }
+                        if (aluno.avali_nota3 !== null) { soma += aluno.avali_nota3; cont++; }
+                        media = (soma / 3.0).toFixed(1);
+                        mediaClass = 'font-semibold text-primary';
+                    }
+
+                    row.innerHTML = `
+                        <td class="px-lg py-md font-label-bold text-primary">${aluno.aluno_matricula}</td>
+                        <td class="px-lg py-md text-on-surface">${aluno.aluno_nome}</td>
+                        <td class="px-lg py-md text-center text-on-surface-variant">${n1}</td>
+                        <td class="px-lg py-md text-center text-on-surface-variant">${n2}</td>
+                        <td class="px-lg py-md text-center text-on-surface-variant">${n3}</td>
+                        <td class="px-lg py-md text-center ${mediaClass}">${media}</td>
+                        <td class="px-lg py-md">
+                            <span class="px-sm py-xs rounded-full ${badgeClass} text-[11px] font-bold uppercase tracking-wider">${statusLabel}</span>
+                        </td>
+                    `;
+                    tabelaCorpo.appendChild(row);
+                });
+
+                if (resetSelection) {
+                    resetForm();
+                } else if (alunoSelecionado) {
+                    // Mantém o aluno selecionado ativo visualmente
+                    selecionarAluno(alunoSelecionado.idAluno);
+                }
+
+            } else {
+                tabelaCorpo.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="px-lg py-xl text-center text-error bg-error-container/20">
+                            Erro ao carregar dados do servidor.
+                        </td>
+                    </tr>
+                `;
+            }
+        } catch (err) {
+            console.error('Erro de rede ao buscar notas:', err);
+            tabelaCorpo.innerHTML = `
+                <tr>
+                    <td colspan="7" class="px-lg py-xl text-center text-error bg-error-container/20">
+                        Erro de conexão ao carregar dados.
+                    </td>
+                </tr>
+            `;
+        }
+    }
+
+    function resetForm() {
+        alunoSelecionado = null;
+        nomeAlunoLancamento.textContent = 'Nenhum aluno selecionado';
+        nomeAlunoLancamento.classList.add('italic');
+        inputNota1.value = '';
+        inputNota2.value = '';
+        inputNota3.value = '';
+        mediaValor.textContent = '--';
+        mediaBarra.style.width = '0%';
+        mediaValor.className = 'font-headline-md text-primary';
+        formLancamento.classList.add('opacity-50', 'pointer-events-none');
+        [inputNota1, inputNota2, inputNota3, btnSalvar].forEach(el => {
+            el.setAttribute('disabled', 'true');
+        });
+        btnSalvar.classList.add('cursor-not-allowed', 'opacity-80');
+    }
+
+    // Filtrar automaticamente no clique
+    btnFiltrar.addEventListener('click', () => filtrarNotas(true));
+});
+</script>
 </body></html>

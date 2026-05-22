@@ -1,118 +1,144 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-tertiary-fixed-variant": "#454748",
-                    "on-error-container": "#93000a",
-                    "surface-bright": "#f6faff",
-                    "primary-container": "#00234b",
-                    "inverse-on-surface": "#e9f2fb",
-                    "tertiary-fixed-dim": "#c5c7c8",
-                    "tertiary": "#0c0e0f",
-                    "error": "#ba1a1a",
-                    "tertiary-fixed": "#e1e3e4",
-                    "surface-container-lowest": "#ffffff",
-                    "outline": "#74777f",
-                    "surface-variant": "#dbe4ed",
-                    "outline-variant": "#c4c6d0",
-                    "on-surface": "#141d23",
-                    "inverse-surface": "#293138",
-                    "surface-container-highest": "#dbe4ed",
-                    "on-primary-fixed-variant": "#2c4771",
-                    "background": "#f6faff",
-                    "secondary": "#006d37",
-                    "on-secondary": "#ffffff",
-                    "surface-dim": "#d2dbe4",
-                    "surface-container-high": "#e0e9f2",
-                    "on-primary": "#ffffff",
-                    "surface": "#f6faff",
-                    "surface-tint": "#455f8a",
-                    "on-secondary-fixed-variant": "#005228",
-                    "inverse-primary": "#adc7f8",
-                    "surface-container-low": "#ecf5fe",
-                    "primary": "#000e24",
-                    "on-primary-container": "#718bb9",
-                    "primary-fixed": "#d6e3ff",
-                    "on-surface-variant": "#43474e",
-                    "on-primary-fixed": "#001b3d",
-                    "secondary-container": "#6bfe9c",
-                    "on-tertiary-container": "#898b8c",
-                    "on-tertiary": "#ffffff",
-                    "secondary-fixed-dim": "#4ae183",
-                    "primary-fixed-dim": "#adc7f8",
-                    "on-tertiary-fixed": "#191c1d",
-                    "on-secondary-fixed": "#00210c",
-                    "on-error": "#ffffff",
-                    "tertiary-container": "#212425",
-                    "surface-container": "#e6eff8",
-                    "secondary-fixed": "#6bfe9c",
-                    "on-background": "#141d23",
-                    "error-container": "#ffdad6",
-                    "on-secondary-container": "#00743a"
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f6faff",
+                        "primary-container": "#00234b",
+                        "inverse-on-surface": "#e9f2fb",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "tertiary": "#0c0e0f",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#74777f",
+                        "surface-variant": "#dbe4ed",
+                        "outline-variant": "#c4c6d0",
+                        "on-surface": "#141d23",
+                        "inverse-surface": "#293138",
+                        "surface-container-highest": "#dbe4ed",
+                        "on-primary-fixed-variant": "#2c4771",
+                        "background": "#f6faff",
+                        "secondary": "#006d37",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d2dbe4",
+                        "surface-container-high": "#e0e9f2",
+                        "on-primary": "#ffffff",
+                        "surface": "#f6faff",
+                        "surface-tint": "#455f8a",
+                        "on-secondary-fixed-variant": "#005228",
+                        "inverse-primary": "#adc7f8",
+                        "surface-container-low": "#ecf5fe",
+                        "primary": "#000e24",
+                        "on-primary-container": "#718bb9",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed": "#001b3d",
+                        "secondary-container": "#6bfe9c",
+                        "on-tertiary-container": "#898b8c",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#4ae183",
+                        "primary-fixed-dim": "#adc7f8",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary-fixed": "#00210c",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#212425",
+                        "surface-container": "#e6eff8",
+                        "secondary-fixed": "#6bfe9c",
+                        "on-background": "#141d23",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#00743a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "sidebar_width": "260px",
+                        "sm": "8px",
+                        "header_height": "64px"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-bold": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                },
             },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "md": "16px",
-                    "unit": "4px",
-                    "xl": "32px",
-                    "lg": "24px",
-                    "gutter": "16px",
-                    "xs": "4px",
-                    "sidebar_width": "260px",
-                    "sm": "8px",
-                    "header_height": "64px"
-            },
-            "fontFamily": {
-                    "title-sm": ["Inter"],
-                    "body-md": ["Inter"],
-                    "headline-md": ["Hanken Grotesk"],
-                    "display-lg": ["Hanken Grotesk"],
-                    "label-bold": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "body-sm": ["Inter"]
-            },
-            "fontSize": {
-                    "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
-                    "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
-                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
+        }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-headline-md, .font-display-lg { font-family: 'Hanken Grotesk', sans-serif; }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-headline-md,
+        .font-display-lg {
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
             vertical-align: middle;
         }
+
         /* Custom scrollbar for Windows aesthetic */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #c4c6d0; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #74777f; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c4c6d0;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #74777f;
+        }
 
         /* Sidebar Styles imported from home.html */
         :root {
@@ -120,173 +146,513 @@
             --accent-green: #00a859;
             --text-white: #ffffff;
         }
-        .sidebar { width: 260px; background-color: var(--sidebar-blue); color: var(--text-white); padding: 25px; display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; box-sizing: border-box; z-index: 50; }
-        .sidebar .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-        .sidebar .logo i { font-size: 28px; color: #90cdf4; }
-        .sidebar .logo h2 { font-size: 18px; letter-spacing: 1px; margin: 0; font-family: 'Segoe UI', sans-serif;}
-        .sidebar .logo span { font-size: 10px; opacity: 0.6; }
-        .sidebar .menu ul { list-style: none; padding: 0; margin: 0; }
-        .sidebar .menu li { padding: 12px 15px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; opacity: 0.7; transition: 0.3s; font-size: 14px; display: block; }
-        .sidebar .menu li:hover, .sidebar .menu li.active { background-color: rgba(255,255,255,0.1); opacity: 1; }
-        .sidebar .menu li i { margin-right: 12px; width: 20px; text-align: center; }
-        .sidebar .sidebar-footer { margin-top: auto; }
-        .sidebar .btn-new { width: 100%; background-color: var(--accent-green); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; margin-bottom: 20px; cursor: pointer; }
-        .sidebar .sidebar-footer ul { list-style: none; font-size: 13px; opacity: 0.7; padding: 0; }
-        .sidebar .sidebar-footer li { margin-bottom: 10px; cursor: pointer; }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-blue);
+            color: var(--text-white);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+            z-index: 50;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar .logo i {
+            font-size: 28px;
+            color: #90cdf4;
+        }
+
+        .sidebar .logo h2 {
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .sidebar .logo span {
+            font-size: 10px;
+            opacity: 0.6;
+        }
+
+        .sidebar .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .menu li {
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.3s;
+            font-size: 14px;
+            display: block;
+        }
+
+        .sidebar .menu li:hover,
+        .sidebar .menu li.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+
+        .sidebar .menu li i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar .sidebar-footer {
+            margin-top: auto;
+        }
+
+        .sidebar .btn-new {
+            width: 100%;
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar .sidebar-footer ul {
+            list-style: none;
+            font-size: 13px;
+            opacity: 0.7;
+            padding: 0;
+        }
+
+        .sidebar .sidebar-footer li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
     </style>
     <%- include('partials/sidebar_css') %>
 </head>
+
 <body class="bg-background text-on-background">
-<!-- SideNavBar -->
-<%- include('partials/sidebar') %>
-<!-- TopNavBar Shell -->
-<header class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
-<div class="flex items-center">
-<span class="font-title-sm text-title-sm text-primary font-bold mr-xl">Portal Administrativo</span>
-</div>
-<div class="flex items-center gap-md">
-<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
-<span class="material-symbols-outlined">help_outline</span>
-</button>
-<div class="flex items-center gap-sm ml-md border-l border-outline-variant pl-md">
-<div class="text-right">
-<p class="font-label-bold text-label-bold text-primary">Admin Principal</p>
-<p class="text-[10px] text-on-surface-variant">COORDENAÇÃO</p>
-</div>
-<img alt="Foto do Administrador" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a school administrator in his late 40s, wearing a charcoal grey suit and a white shirt. The background is a blurred office environment with soft morning light filtering through a window, creating a warm and authoritative atmosphere. The visual style is clean and corporate, utilizing a high-key lighting setup that matches a modern educational management software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI2-9ks6C_8yPhICjOXUUXDemZw8tgLLo6AzUktEDpaXh32wBv7-ls1jyTz1giuA6Tz0QZSgORVaRVEztwnLh1ppcBgCuYuIQN-5NNA8GMO6vAVgrj9EjHzukAhTZS9KxhOMxw5Ine-imz4x6l9vLlGUU9FISzwfaATqkaMHvkj7sqfJXsMJidP1Wuf5BR4xEojc1Vum6URi2N_OmpAkXP6nFpQ3-F2s3A_ffmxKcdpxPt3DJXizTXo59lFMd0uWOBUNix1z11Tj7p"/>
-</div>
-</div>
-</header>
-<!-- Main Content Canvas -->
-<main class="ml-sidebar_width pt-header_height min-h-screen bg-background">
-<div class="max-w-5xl mx-auto p-xl">
-<!-- Header Section -->
-<div class="mb-xl flex justify-between items-end">
-<div>
-<nav class="flex text-label-sm text-on-surface-variant mb-unit">
-<span>Alunos</span>
-<span class="mx-xs">/</span>
-<span class="text-primary font-bold">Novo Cadastro</span>
-</nav>
-<h2 class="font-headline-md text-headline-md text-primary">Cadastro de Aluno</h2>
-<p class="font-body-md text-on-surface-variant">Preencha as informações abaixo para matricular um novo estudante.</p>
-</div>
-<div class="flex gap-sm">
-<button class="px-lg py-2 border border-outline-variant text-primary font-label-bold rounded-lg hover:bg-surface-container-low transition-all" onclick="window.location.href='/alunos'">Cancelar</button>
-<button class="px-lg py-2 bg-primary text-on-primary font-label-bold rounded-lg hover:bg-primary-container transition-all flex items-center gap-xs">
-<span class="material-symbols-outlined text-sm">save</span>
-                        Cadastrar
-                    </button>
-</div>
-</div>
-<!-- Main Form Card -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
-<div class="p-lg border-b border-outline-variant bg-surface-container-low flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">person_add</span>
-<h3 class="font-title-sm text-title-sm text-primary">Informações Pessoais</h3>
-</div>
-<form class="p-xl space-y-lg">
-<!-- Grid Layout for Personal Info -->
-<div class="grid grid-cols-12 gap-lg">
-<div class="col-span-12 md:col-span-8">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Nome Completo</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Ex: João Silva Santos" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-4">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">CPF</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="000.000.000-00" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-4">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Data de Nascimento</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" type="date"/>
-</div>
-<div class="col-span-12 md:col-span-4">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Celular</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="(00) 00000-0000" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-4">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">E-mail</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="exemplo@email.com" type="email"/>
-</div>
-</div>
-<!-- Address Section Divider -->
-<div class="flex items-center gap-md py-md">
-<span class="font-label-bold text-label-bold text-primary whitespace-nowrap uppercase tracking-wider">Endereço de Residência</span>
-<div class="h-px bg-outline-variant w-full"></div>
-</div>
-<!-- Grid Layout for Address -->
-<div class="grid grid-cols-12 gap-lg">
-<div class="col-span-12 md:col-span-3">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">CEP</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="00000-000" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-7">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Logradouro</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Rua, Avenida, Praça..." type="text"/>
-</div>
-<div class="col-span-12 md:col-span-2">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Número</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="123" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-4">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Bairro</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Digite o bairro" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-5">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Cidade</label>
-<input class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Ex: São Paulo" type="text"/>
-</div>
-<div class="col-span-12 md:col-span-3">
-<label class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Estado (UF)</label>
-<select class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all">
-<option value="">Selecione</option>
-<option value="SP">São Paulo</option>
-<option value="RJ">Rio de Janeiro</option>
-<option value="MG">Minas Gerais</option>
-<option value="PR">Paraná</option>
-</select>
-</div>
-</div>
-<!-- Form Footer Buttons -->
-<div class="pt-xl flex justify-end gap-md">
-<button class="px-xl py-3 text-on-surface-variant hover:text-primary font-label-bold transition-colors" type="reset">Limpar Campos</button>
-<button class="px-xl py-3 bg-secondary text-on-secondary rounded-lg font-label-bold shadow-md hover:bg-on-secondary-fixed-variant active:scale-95 transition-all flex items-center gap-sm" type="submit">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            Confirmar Cadastro
-                        </button>
-</div>
-</form>
-</div>
-<!-- Auxiliary Information Cards (Bento Style) -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mt-xl">
-<div class="bg-primary-fixed text-on-primary-fixed p-lg rounded-xl flex flex-col justify-between border border-primary/10">
-<div>
-<span class="material-symbols-outlined mb-sm">info</span>
-<h4 class="font-label-bold text-label-bold">Dica do Sistema</h4>
-</div>
-<p class="text-body-sm mt-sm">O preenchimento do CPF é obrigatório para a emissão automática de boletos e certificados.</p>
-</div>
-<div class="bg-surface-container-high border border-outline-variant p-lg rounded-xl flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined mb-sm text-primary">verified_user</span>
-<h4 class="font-label-bold text-label-bold text-primary">Segurança de Dados</h4>
-</div>
-<p class="text-body-sm text-on-surface-variant mt-sm">Este sistema está em conformidade com a LGPD. Todos os dados são criptografados.</p>
-</div>
-<div class="bg-secondary-container text-on-secondary-container p-lg rounded-xl flex flex-col justify-between border border-secondary/10">
-<div>
-<span class="material-symbols-outlined mb-sm">support_agent</span>
-<h4 class="font-label-bold text-label-bold">Precisa de Ajuda?</h4>
-</div>
-<p class="text-body-sm mt-sm">Contate o suporte técnico no ramal 404 para dúvidas sobre documentação acadêmica.</p>
-</div>
-</div>
-</div>
-<footer class="mt-auto py-lg text-center border-t border-outline-variant">
-<p class="text-label-sm text-on-surface-variant">© 2024 Escola ABC v4.2.1 • Sistema de Gestão Acadêmica Integrada</p>
-</footer>
-</main>
-</body></html>
+    <!-- SideNavBar -->
+    <%- include('partials/sidebar') %>
+        <!-- TopNavBar Shell -->
+        <header
+            class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
+            <div class="flex items-center">
+                <span class="font-title-sm text-title-sm text-primary font-bold mr-xl">Portal Administrativo</span>
+            </div>
+            <div class="flex items-center gap-md">
+                <button
+                    class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button
+                    class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
+                    <span class="material-symbols-outlined">help_outline</span>
+                </button>
+                <div class="flex items-center gap-sm ml-md border-l border-outline-variant pl-md">
+                    <div class="text-right">
+                        <p class="font-label-bold text-label-bold text-primary">Admin Principal</p>
+                        <p class="text-[10px] text-on-surface-variant">COORDENAÇÃO</p>
+                    </div>
+                    <img alt="Foto do Administrador"
+                        class="w-8 h-8 rounded-full border border-outline-variant object-cover"
+                        data-alt="A professional headshot of a school administrator in his late 40s, wearing a charcoal grey suit and a white shirt. The background is a blurred office environment with soft morning light filtering through a window, creating a warm and authoritative atmosphere. The visual style is clean and corporate, utilizing a high-key lighting setup that matches a modern educational management software interface."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI2-9ks6C_8yPhICjOXUUXDemZw8tgLLo6AzUktEDpaXh32wBv7-ls1jyTz1giuA6Tz0QZSgORVaRVEztwnLh1ppcBgCuYuIQN-5NNA8GMO6vAVgrj9EjHzukAhTZS9KxhOMxw5Ine-imz4x6l9vLlGUU9FISzwfaATqkaMHvkj7sqfJXsMJidP1Wuf5BR4xEojc1Vum6URi2N_OmpAkXP6nFpQ3-F2s3A_ffmxKcdpxPt3DJXizTXo59lFMd0uWOBUNix1z11Tj7p" />
+                </div>
+            </div>
+        </header>
+        <!-- Main Content Canvas -->
+        <main class="ml-sidebar_width pt-header_height min-h-screen bg-background">
+            <div class="max-w-5xl mx-auto p-xl">
+                <!-- Header Section -->
+                <div class="mb-xl flex justify-between items-end">
+                    <div>
+                        <nav class="flex text-label-sm text-on-surface-variant mb-unit">
+                            <span>Alunos</span>
+                            <span class="mx-xs">/</span>
+                            <span class="text-primary font-bold">Novo Cadastro</span>
+                        </nav>
+                        <h2 class="font-headline-md text-headline-md text-primary">Cadastro de Aluno</h2>
+                        <p class="font-body-md text-on-surface-variant">Preencha as informações abaixo para matricular
+                            um novo estudante.</p>
+                    </div>
+                    <div class="flex gap-sm">
+                        <button
+                            class="px-lg py-2 border border-outline-variant text-primary font-label-bold rounded-lg hover:bg-surface-container-low transition-all"
+                            onclick="window.location.href='/alunos'">Cancelar</button>
+
+                    </div>
+                </div>
+                <!-- Main Form Card -->
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-lg border-b border-outline-variant bg-surface-container-low flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary">person_add</span>
+                        <h3 class="font-title-sm text-title-sm text-primary">Informações Pessoais</h3>
+                    </div>
+                    <form id="student-form" class="p-xl space-y-lg">
+                        <!-- Grid Layout for Personal Info -->
+                        <div class="grid grid-cols-12 gap-lg">
+                            <div class="col-span-12 md:col-span-8">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Nome
+                                    Completo</label>
+                                <input name="nome" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="Ex: João Silva Santos" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-4">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">CPF</label>
+                                <input name="CPF" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="000.000.000-00" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-4">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Data
+                                    de Nascimento</label>
+                                <input name="data_nasc" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    type="date" />
+                            </div>
+                            <div class="col-span-12 md:col-span-4">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Celular</label>
+                                <input name="celular" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="(00) 00000-0000" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-4">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">E-mail</label>
+                                <input name="email" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="exemplo@email.com" type="email" />
+                            </div>
+                            <div class="col-span-12 md:col-span-6">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Número
+                                    de Matrícula</label>
+                                <input name="matricula_aluno" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="Ex: 20260001" type="number" />
+                            </div>
+                            <div class="col-span-12 md:col-span-6">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Turma</label>
+                                <select name="fk_turma" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all">
+                                    <option value="">Selecione uma turma</option>
+                                    <% turmas.forEach(function(turma) { %>
+                                        <option value="<%= turma.idTurma %>">
+                                            <%= turma.turma_nome %>
+                                        </option>
+                                        <% }); %>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Address Section Divider -->
+                        <div class="flex items-center gap-md py-md">
+                            <span
+                                class="font-label-bold text-label-bold text-primary whitespace-nowrap uppercase tracking-wider">Endereço
+                                de Residência</span>
+                            <div class="h-px bg-outline-variant w-full"></div>
+                        </div>
+                        <!-- Grid Layout for Address -->
+                        <div class="grid grid-cols-12 gap-lg">
+                            <div class="col-span-12 md:col-span-3">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">CEP</label>
+                                <input name="CEP" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="00000-000" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-7">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Logradouro</label>
+                                <input name="logradouro" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="Rua, Avenida, Praça..." type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-2">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Número</label>
+                                <input name="num_endereco" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="123" type="number" />
+                            </div>
+                            <div class="col-span-12 md:col-span-4">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Bairro</label>
+                                <input name="bairro" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="Digite o bairro" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-5">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Cidade</label>
+                                <input name="cidade" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="Ex: São Paulo" type="text" />
+                            </div>
+                            <div class="col-span-12 md:col-span-3">
+                                <label
+                                    class="block font-label-bold text-label-bold text-on-surface-variant mb-unit">Estado
+                                    (UF)</label>
+                                <select name="uf_sigla" required
+                                    class="w-full h-10 px-md border border-outline-variant rounded bg-white text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all">
+                                    <option value="">Selecione</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Form Footer Buttons -->
+                        <div class="pt-xl flex justify-end gap-md">
+                            <button
+                                class="px-xl py-3 text-on-surface-variant hover:text-primary font-label-bold transition-colors"
+                                type="reset">Limpar Campos</button>
+                            <button
+                                class="px-xl py-3 bg-secondary text-on-secondary rounded-lg font-label-bold shadow-md hover:bg-on-secondary-fixed-variant active:scale-95 transition-all flex items-center gap-sm"
+                                type="submit">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Confirmar Cadastro
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Auxiliary Information Cards (Bento Style) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-lg mt-xl">
+                    <div
+                        class="bg-primary-fixed text-on-primary-fixed p-lg rounded-xl flex flex-col justify-between border border-primary/10">
+                        <div>
+                            <span class="material-symbols-outlined mb-sm">info</span>
+                            <h4 class="font-label-bold text-label-bold">Dica do Sistema</h4>
+                        </div>
+                        <p class="text-body-sm mt-sm">O preenchimento do CPF é obrigatório para a emissão automática de
+                            boletos e certificados.</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-high border border-outline-variant p-lg rounded-xl flex flex-col justify-between">
+                        <div>
+                            <span class="material-symbols-outlined mb-sm text-primary">verified_user</span>
+                            <h4 class="font-label-bold text-label-bold text-primary">Segurança de Dados</h4>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant mt-sm">Este sistema está em conformidade com a
+                            LGPD. Todos os dados são criptografados.</p>
+                    </div>
+                    <div
+                        class="bg-secondary-container text-on-secondary-container p-lg rounded-xl flex flex-col justify-between border border-secondary/10">
+                        <div>
+                            <span class="material-symbols-outlined mb-sm">support_agent</span>
+                            <h4 class="font-label-bold text-label-bold">Precisa de Ajuda?</h4>
+                        </div>
+                        <p class="text-body-sm mt-sm">Contate o suporte técnico no ramal 404 para dúvidas sobre
+                            documentação acadêmica.</p>
+                    </div>
+                </div>
+            </div>
+            <footer class="mt-auto py-lg text-center border-t border-outline-variant">
+                <p class="text-label-sm text-on-surface-variant">© 2024 Escola ABC v4.2.1 • Sistema de Gestão Acadêmica
+                    Integrada</p>
+            </footer>
+        </main>
+
+        <script>
+            // Input masks for a premium feel
+            const cpfInput = document.querySelector('input[name="CPF"]');
+            cpfInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                if (value.length > 9) {
+                    value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+                } else if (value.length > 6) {
+                    value = value.replace(/^(\d{3})(\d{3})(\d{0,3})$/, '$1.$2.$3');
+                } else if (value.length > 3) {
+                    value = value.replace(/^(\d{3})(\d{0,3})$/, '$1.$2');
+                }
+                e.target.value = value;
+            });
+
+            const celInput = document.querySelector('input[name="celular"]');
+            celInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                if (value.length > 6) {
+                    value = value.replace(/^(\d{2})(\d{5})(\d{0,4})$/, '($1) $2-$3');
+                } else if (value.length > 2) {
+                    value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+                } else if (value.length > 0) {
+                    value = value.replace(/^(\d{0,2})$/, '($1');
+                }
+                e.target.value = value;
+            });
+
+            const cepInput = document.querySelector('input[name="CEP"]');
+            cepInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 8) value = value.slice(0, 8);
+                if (value.length > 5) {
+                    value = value.replace(/^(\d{5})(\d{0,3})$/, '$1-$2');
+                }
+                e.target.value = value;
+            });
+
+            // Handle form submit
+            const form = document.getElementById('student-form');
+            const btnSubmitTop = document.getElementById('btn-submit-top');
+
+            if (btnSubmitTop) {
+                btnSubmitTop.addEventListener('click', () => {
+                    if (form.reportValidity()) {
+                        form.requestSubmit();
+                    }
+                });
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Get action buttons
+                const submitBtnBottom = form.querySelector('button[type="submit"]');
+                const originalBtnBottomText = submitBtnBottom.innerHTML;
+                const originalBtnTopText = btnSubmitTop ? btnSubmitTop.innerHTML : '';
+
+                // Disable buttons and show loading spinner
+                submitBtnBottom.disabled = true;
+                if (btnSubmitTop) btnSubmitTop.disabled = true;
+
+                const loadingSpinner = `
+            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+        `;
+
+                submitBtnBottom.innerHTML = loadingSpinner;
+                if (btnSubmitTop) btnSubmitTop.innerHTML = loadingSpinner;
+
+                // Clear previous alert if exists
+                const oldAlert = document.getElementById('feedback-alert');
+                if (oldAlert) oldAlert.remove();
+
+                // Build request payload
+                const formData = new FormData(form);
+                const payload = {};
+                formData.forEach((value, key) => {
+                    payload[key] = value;
+                });
+
+                try {
+                    const response = await fetch('/alunos/novo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.success) {
+                        showFeedback('Aluno cadastrado com sucesso! Redirecionando para listagem...', 'success');
+                        setTimeout(() => {
+                            window.location.href = '/alunos';
+                        }, 2000);
+                    } else {
+                        showFeedback(result.error || 'Erro desconhecido ao cadastrar aluno.', 'error');
+                        // Restore buttons
+                        submitBtnBottom.disabled = false;
+                        submitBtnBottom.innerHTML = originalBtnBottomText;
+                        if (btnSubmitTop) {
+                            btnSubmitTop.disabled = false;
+                            btnSubmitTop.innerHTML = originalBtnTopText;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Submit error:', error);
+                    showFeedback('Erro de comunicação com o servidor. Tente novamente.', 'error');
+                    // Restore buttons
+                    submitBtnBottom.disabled = false;
+                    submitBtnBottom.innerHTML = originalBtnBottomText;
+                    if (btnSubmitTop) {
+                        btnSubmitTop.disabled = false;
+                        btnSubmitTop.innerHTML = originalBtnTopText;
+                    }
+                }
+            });
+
+            function showFeedback(message, type) {
+                const alertDiv = document.createElement('div');
+                alertDiv.id = 'feedback-alert';
+
+                let bgClass, borderClass, textClass, icon;
+                if (type === 'success') {
+                    bgClass = 'bg-secondary-container';
+                    borderClass = 'border-secondary/20';
+                    textClass = 'text-on-secondary-container';
+                    icon = 'check_circle';
+                } else {
+                    bgClass = 'bg-error-container';
+                    borderClass = 'border-error/20';
+                    textClass = 'text-on-error-container';
+                    icon = 'error';
+                }
+
+                alertDiv.className = `p-md rounded-lg mb-lg flex items-center gap-sm font-body-md border transition-all ${bgClass} ${borderClass} ${textClass}`;
+                alertDiv.innerHTML = `
+            <span class="material-symbols-outlined">${icon}</span>
+            <span>${message}</span>
+        `;
+
+                // Insert alert right at the start of the form
+                form.insertBefore(alertDiv, form.firstChild);
+                alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        </script>
+</body>
+
+</html>
