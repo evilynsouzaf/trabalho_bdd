@@ -250,32 +250,7 @@
     <!-- SideNavBar -->
     <%- include('partials/sidebar') %>
         <!-- TopNavBar Shell -->
-        <header
-            class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
-            <div class="flex items-center">
-                <span class="font-title-sm text-title-sm text-primary font-bold mr-xl">Portal Administrativo</span>
-            </div>
-            <div class="flex items-center gap-md">
-                <button
-                    class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
-                    <span class="material-symbols-outlined">notifications</span>
-                </button>
-                <button
-                    class="p-2 hover:bg-surface-container-low rounded-full transition-colors text-on-surface-variant">
-                    <span class="material-symbols-outlined">help_outline</span>
-                </button>
-                <div class="flex items-center gap-sm ml-md border-l border-outline-variant pl-md">
-                    <div class="text-right">
-                        <p class="font-label-bold text-label-bold text-primary">Admin Principal</p>
-                        <p class="text-[10px] text-on-surface-variant">COORDENAÇÃO</p>
-                    </div>
-                    <img alt="Foto do Administrador"
-                        class="w-8 h-8 rounded-full border border-outline-variant object-cover"
-                        data-alt="A professional headshot of a school administrator in his late 40s, wearing a charcoal grey suit and a white shirt. The background is a blurred office environment with soft morning light filtering through a window, creating a warm and authoritative atmosphere. The visual style is clean and corporate, utilizing a high-key lighting setup that matches a modern educational management software interface."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI2-9ks6C_8yPhICjOXUUXDemZw8tgLLo6AzUktEDpaXh32wBv7-ls1jyTz1giuA6Tz0QZSgORVaRVEztwnLh1ppcBgCuYuIQN-5NNA8GMO6vAVgrj9EjHzukAhTZS9KxhOMxw5Ine-imz4x6l9vLlGUU9FISzwfaATqkaMHvkj7sqfJXsMJidP1Wuf5BR4xEojc1Vum6URi2N_OmpAkXP6nFpQ3-F2s3A_ffmxKcdpxPt3DJXizTXo59lFMd0uWOBUNix1z11Tj7p" />
-                </div>
-            </div>
-        </header>
+        <%- include('partials/top_header') %>
         <!-- Main Content Canvas -->
         <main class="ml-sidebar_width pt-header_height min-h-screen bg-background">
             <div class="max-w-5xl mx-auto p-xl">

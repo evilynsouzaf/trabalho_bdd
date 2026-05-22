@@ -118,25 +118,7 @@
     <%- include('partials/sidebar') %>
 
     <!-- TOP NAVBAR -->
-    <header class="h-header_height fixed top-0 right-0 left-sidebar_width bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-lg w-full z-10">
-        <div class="flex items-center gap-md flex-1">
-            <div class="relative w-1/3 max-w-md">
-                <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
-                <input id="search-professor" class="w-full pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-body-md" placeholder="Procurar professor..." type="text"/>
-            </div>
-        </div>
-        <div class="flex items-center gap-lg">
-            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full">notifications</span>
-            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full">help_outline</span>
-            <div class="flex items-center gap-sm ml-md">
-                <div class="text-right">
-                    <p class="font-label-bold text-label-bold text-primary">Admin Principal</p>
-                    <p class="text-label-sm text-on-surface-variant">Gestor Escolar</p>
-                </div>
-                <img alt="Foto do Administrador" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a mature administrative manager in a corporate setting. He is wearing a sharp charcoal suit and white shirt, smiling confidently at the camera. The background is a soft-focus modern office with glass walls and professional blue-toned lighting that matches the school management system aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBIt4r3SlHuwfBYkF5IYBO8U3-U21YYiN6EQ5kcjSI-Y1t-AaFZeGX_2R1SUgOhR6NJ2Vvu7K1CcSPGL-jDgkOUAhSFwWQ06kE7QScPk49_AOdODxMBYs4gc4U6u8mKV_wib7LcRGypQWFk-c6nAKhnYxtvfM-7dPRB7QnFb5jsDa89HerV9QuQVg8HeZ2FdjU7iGA8cz7DFh8ObHbPGV_NNNkxPVsiP7l1szYMKvTXxH5xvPipnnQOvBX1IJO6a7WFs2fzAlQeo"/>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/top_header') %>
 
     <!-- MAIN CONTENT -->
     <main class="ml-sidebar_width mt-header_height p-lg flex gap-lg min-h-[calc(100vh-64px)]">
