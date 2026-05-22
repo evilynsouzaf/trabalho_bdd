@@ -3,7 +3,7 @@
 <html class="light" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EduManage - Gestão de Turmas</title>
+<title>Escola ABC - Gestão de Turmas</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -163,14 +163,7 @@
 <label class="font-label-bold text-label-bold text-on-surface-variant ml-xs">Ano Acadêmico</label>
 <input class="w-full h-10 bg-white border border-outline-variant rounded-lg px-md focus:border-primary focus:ring-0 transition-colors text-body-md" placeholder="Ex: 2024" type="number"/>
 </div>
-<div class="space-y-xs">
-<label class="font-label-bold text-label-bold text-on-surface-variant ml-xs">Período</label>
-<select class="w-full h-10 bg-white border border-outline-variant rounded-lg px-md focus:border-primary focus:ring-0 transition-colors text-body-md">
-<option>Matutino</option>
-<option>Vespertino</option>
-<option>Noturno</option>
-</select>
-</div>
+
 <div class="pt-md flex flex-col gap-sm">
 <button class="w-full h-11 bg-primary text-on-primary rounded font-label-bold text-label-bold hover:opacity-90 transition-opacity" type="submit">
                                 Salvar Alterações
@@ -180,53 +173,20 @@
                             </button>
 </div>
 </form>
-<div class="mt-xl p-md bg-surface-container-low rounded border border-outline-variant">
-<div class="flex gap-md">
-<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-on-secondary-container" data-icon="info">info</span>
-</div>
-<div>
-<h4 class="font-label-bold text-label-bold text-primary">Dica Operacional</h4>
-<p class="text-body-sm text-on-surface-variant mt-xs">As turmas cadastradas aqui estarão disponíveis para o lançamento de notas e atribuição de professores imediatamente.</p>
-</div>
-</div>
-</div>
+
 </section>
 <!-- List/Table Section (Right) -->
 <section class="col-span-12 lg:col-span-8 space-y-lg">
-<!-- Stats / Quick Info -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-<div class="bg-surface-container-highest p-md rounded-lg border border-outline-variant flex items-center justify-between">
-<div>
-<p class="text-label-sm text-on-surface-variant uppercase tracking-tighter font-semibold">Total de Turmas</p>
-<p class="text-headline-md font-bold text-primary">12</p>
-</div>
-<span class="material-symbols-outlined text-primary/40 text-4xl" data-icon="groups">groups</span>
-</div>
-<div class="bg-secondary-container/30 p-md rounded-lg border border-secondary/20 flex items-center justify-between">
-<div>
-<p class="text-label-sm text-on-secondary-container uppercase tracking-tighter font-semibold">Vagas Ocupadas</p>
-<p class="text-headline-md font-bold text-on-secondary-container">284/300</p>
-</div>
-<span class="material-symbols-outlined text-secondary/40 text-4xl" data-icon="person_check">person_check</span>
-</div>
-<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant flex items-center justify-between shadow-sm">
-<img class="w-12 h-12 object-contain grayscale opacity-60" data-alt="A professional dashboard illustration showing academic growth trends with clean financial-style charts in navy blue and forest green. The style is flat corporate minimalist with sharp lines and high density information." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsaIsBL41InQYcW6gV6ere31DqSc3QsmUojPn63OgyLAahDrADHLJf-mLzm2O6dlXdZb994SabkZJ6sU9HovF_uIUgChidBc0-4UhxAcDXccL4Et7ujoP1-eO6rC1f0M0-_miLQcxHU3pFxYf7fPiM1fg9Y3aIDIRz9RFVf7A_mN_qJkIpBqeCYiSRHpBMIVhQqComTr0OIjzzEVUo-abAatKNKI6QpF6dp_KVQg4XdDJaVDwgVwnOcqrLpsFC5GXceC5QHxlCjPo"/>
-<div class="text-right">
-<p class="text-label-sm text-on-surface-variant uppercase tracking-tighter font-semibold">Taxa de Ocupação</p>
-<p class="text-headline-md font-bold text-primary">94%</p>
-</div>
-</div>
-</div>
+
 <!-- Main Table -->
 <div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
 <div class="p-lg border-b border-outline-variant flex justify-between items-center">
 <h3 class="font-title-sm text-title-sm text-primary">Lista de Turmas Ativas</h3>
 <div class="flex gap-sm">
-<button class="flex items-center gap-xs px-md py-sm bg-surface-container-low border border-outline-variant rounded font-label-bold text-label-bold hover:bg-surface-container transition-colors">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-low border border-outline-variant rounded font-label-bold text-label-bold hover:bg-surface-container transition-colors" onclick="alert('Abrindo filtros...')">
 <span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span> Filtrar
                                 </button>
-<button class="flex items-center gap-xs px-md py-sm bg-surface-container-low border border-outline-variant rounded font-label-bold text-label-bold hover:bg-surface-container transition-colors">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-low border border-outline-variant rounded font-label-bold text-label-bold hover:bg-surface-container transition-colors" onclick="window.print()">
 <span class="material-symbols-outlined text-lg" data-icon="download">download</span> Exportar
                                 </button>
 </div>
@@ -254,8 +214,8 @@
 <button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all">
 <span class="material-symbols-outlined" data-icon="edit">edit</span>
 </button>
-<button class="p-xs text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded transition-all">
-<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all" onclick="window.location.href='/relatorios?report=notas_turma_disc'">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
 </button>
 </td>
 </tr>
@@ -271,8 +231,8 @@
 <button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all">
 <span class="material-symbols-outlined" data-icon="edit">edit</span>
 </button>
-<button class="p-xs text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded transition-all">
-<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all" onclick="window.location.href='/relatorios?report=notas_turma_disc'">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
 </button>
 </td>
 </tr>
@@ -286,10 +246,10 @@
 </td>
 <td class="px-lg py-md text-right space-x-xs">
 <button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all">
-<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
 </button>
-<button class="p-xs text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded transition-all">
-<span class="material-symbols-outlined" data-icon="archive">archive</span>
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all" onclick="window.location.href='/relatorios?report=notas_turma_disc'">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
 </button>
 </td>
 </tr>
@@ -305,8 +265,8 @@
 <button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all">
 <span class="material-symbols-outlined" data-icon="edit">edit</span>
 </button>
-<button class="p-xs text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded transition-all">
-<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<button class="p-xs text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded transition-all" onclick="window.location.href='/relatorios?report=notas_turma_disc'">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
 </button>
 </td>
 </tr>

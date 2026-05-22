@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduManage - Dashboard Administrativo</title>
+    <title>Escola ABC - Dashboard Administrativo</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <%- include('partials/sidebar_css') %>
@@ -15,10 +15,6 @@
     <main class="main-content">
         
         <header class="top-header">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Pesquisar no portal...">
-            </div>
             <div class="user-info">
                 <span>Portal Administrativo</span>
                 <i class="far fa-bell"></i>
@@ -33,19 +29,7 @@
             </div>
         </header>
 
-        <section class="welcome-section">
-            <div class="welcome-text">
-                <h1>Bem-vindo, Administrador</h1>
-                <p>Aqui está um resumo do status institucional para hoje. Você tem <span class="highlight">12 novos registros</span> pendentes de revisão.</p>
-                <div class="actions">
-                    <button class="btn-primary">Gerar Relatório Diário</button>
-                    <button class="btn-secondary">Ver Log de Atividades</button>
-                </div>
-            </div>
-            <div class="welcome-chart-placeholder">
-                <i class="fas fa-chart-bar"></i>
-            </div>
-        </section>
+
 
         <section class="metrics-grid">
             <div class="card metric">
@@ -123,26 +107,65 @@
 
             <aside class="widgets">
                 <div class="card events">
-                    <h3>Próximos Eventos</h3>
+                    <h3 style="margin-bottom: 15px;">Calendário & Eventos</h3>
+                    
+                    <!-- Calendário Intuitivo -->
+                    <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <button style="background: none; border: none; cursor: pointer; color: #555;"><i class="fas fa-chevron-left"></i></button>
+                            <h4 style="margin: 0; font-size: 14px; color: #333;">Maio 2024</h4>
+                            <button style="background: none; border: none; cursor: pointer; color: #555;"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-size: 12px; font-weight: 600; color: #888; margin-bottom: 8px;">
+                            <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-size: 13px; color: #444;">
+                            <div style="color: #ccc;">28</div><div style="color: #ccc;">29</div><div style="color: #ccc;">30</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">1</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">2</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">3</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">4</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">5</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">6</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">7</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">8</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">9</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">10</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">11</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">12</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">13</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">14</div>
+                            <div style="background-color: #00a859; color: white; padding: 4px 0; cursor: pointer; border-radius: 4px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,168,89,0.3);">15</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">16</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">17</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">18</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">19</div>
+                            <div style="background-color: #f0ad4e; color: white; padding: 4px 0; cursor: pointer; border-radius: 4px; font-weight: bold; box-shadow: 0 2px 4px rgba(240,173,78,0.3);">20</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">21</div>
+                            <div style="background-color: #e6f7ff; color: #0066cc; padding: 4px 0; cursor: pointer; border-radius: 4px; font-weight: bold; border: 1px solid #91d5ff;">22</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">23</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">24</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">25</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">26</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">27</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">28</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">29</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">30</div>
+                            <div style="padding: 4px 0; cursor: pointer; border-radius: 4px; transition: background 0.2s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='transparent'">31</div>
+                            <div style="color: #ccc;">1</div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-bottom: 10px; font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 0.5px;">Próximos</h4>
                     <div class="event-item">
-                        <div class="date-box"><span>MAI</span><strong>15</strong></div>
+                        <div class="date-box" style="background: rgba(0,168,89,0.1); color: #00a859;"><span>MAI</span><strong>15</strong></div>
                         <div class="event-info"><strong>Reunião Pedagógica</strong><small>14:00 - Auditório Principal</small></div>
                     </div>
                     <div class="event-item">
-                        <div class="date-box"><span>MAI</span><strong>20</strong></div>
+                        <div class="date-box" style="background: rgba(240,173,78,0.1); color: #f0ad4e;"><span>MAI</span><strong>20</strong></div>
                         <div class="event-info"><strong>Conselho de Classe</strong><small>08:30 - Sala 402</small></div>
                     </div>
-                    <button class="btn-outline">Ver Calendário Completo</button>
-                </div>
-
-                <div class="card server-status">
-                    <h3>Status do Servidor</h3>
-                    <p><i class="fas fa-circle"></i> Sistemas Operacionais</p>
-                    <small>Backup automático realizado hoje às 04:00 AM.</small>
-                    <div class="storage-info">
-                        <span>ARMAZENAMENTO: 92% LIVRE</span>
-                        <i class="fas fa-cloud"></i>
-                    </div>
+                    <button class="btn-outline" style="margin-top: 10px; width: 100%;">Adicionar Evento</button>
                 </div>
             </aside>
         </div>

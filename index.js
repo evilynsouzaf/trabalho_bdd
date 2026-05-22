@@ -53,6 +53,7 @@ app.get('/notas', (req, res) => {
     res.render('notas', { activeMenu: 'notas' });
 });
 
+
 // Rota de Professores
 app.get('/professores', (req, res) => {
     res.render('professores', { activeMenu: 'professores' });
